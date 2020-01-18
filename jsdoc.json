@@ -27,17 +27,17 @@
     "disqus": "", // Shortname for your disqus (subdomain during site creation)
     "openGraph": {
       // Open Graph options (mostly for Facebook and other sites to easily extract meta information)
-      "title": "", // Title of the website
-      "type": "website", // Type of the website
-      "image": "", // Main image/logo
-      "site_name": "", // Site name
-      "url": "" // Main canonical URL for the main page of the site
+      "title": "Linked Data Signatures for JOSE", // Title of the website
+      "type": "documentation", // Type of the website
+      "image": "http://lds.jsld.org/Cyber-Security-FDA-Voices-1600x900.jpg", // Main image/logo
+      "site_name": "JSON-LD Signature Suite for JOSE", // Site name
+      "url": "http://lds.jsld.org" // Main canonical URL for the main page of the site
     },
     "meta": {
       // Meta information options (mostly for search engines that have not indexed your site yet)
-      "title": "", // Also will be used as postfix to actualy page title, prefixed with object/document name
-      "description": "", // Description of overal contents of your website
-      "keyword": "" // Keywords for search engines
+      "title": "JSON-LD Signature Suite for JOSE", // Also will be used as postfix to actualy page title, prefixed with object/document name
+      "description": "Linked Data Signatures for JOSE Developers.", // Description of overal contents of your website
+      "keyword": "jsonld,jose,jws,jwk,jwks,jwa,linked-data,rdf,graph,signature" // Keywords for search engines
     },
     "search": [true]
   }
