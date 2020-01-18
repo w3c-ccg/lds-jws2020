@@ -1,0 +1,21 @@
+{
+  "@context": [
+    "https://transmute-industries.github.io/lds-jose2020/contexts/lds-jose2020-v0.0.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "name": "schema:name",
+      "homepage": "schema:url",
+      "image": "schema:image"
+    }
+  ],
+  "name": "Manu Sporny",
+  "homepage": "https://manu.sporny.org/",
+  "image": "https://manu.sporny.org/images/manu.png",
+  "proof": {
+    "type": "JoseLinkedDataSignature2020",
+    "created": "2020-01-18T21:09:34Z",
+    "verificationMethod": "did:example:123#test-id",
+    "proofPurpose": "assertionMethod",
+    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..qLNRjd9NZ1eJvTXTZz8M-9huDjg2a4LsIaofYpeJlJpi4wBdQkBDI7eBJ4T3qENvCJmMMdyZDVWZCbtmNAkZDA"
+  }
+}

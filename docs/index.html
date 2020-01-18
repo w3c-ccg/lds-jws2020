@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>Home - Documentation</title>
+    
+    
+    
+    
+    
+    <meta property="og:title" content=""/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content=""/>
+    
+    <meta property="og:url" content=""/>
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <input type="text" id="nav-search" placeholder="Search" />
+    
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="JoseLinkedDataSignature2020.html">JoseLinkedDataSignature2020</a><ul class='methods'><li data-type='method'><a href="JoseLinkedDataSignature2020.html#sign">sign</a></li><li data-type='method'><a href="JoseLinkedDataSignature2020.html#verifySignature">verifySignature</a></li></ul></li><li><a href="MyLinkedDataKeyClass2019.html">MyLinkedDataKeyClass2019</a><ul class='methods'><li data-type='method'><a href="MyLinkedDataKeyClass2019.html#addEncodedPublicKey">addEncodedPublicKey</a></li><li data-type='method'><a href="MyLinkedDataKeyClass2019.html#fingerprint">fingerprint</a></li><li data-type='method'><a href="MyLinkedDataKeyClass2019.html#publicNode">publicNode</a></li><li data-type='method'><a href="MyLinkedDataKeyClass2019.html#signer">signer</a></li><li data-type='method'><a href="MyLinkedDataKeyClass2019.html#verifier">verifier</a></li><li data-type='method'><a href="MyLinkedDataKeyClass2019.html#verifyFingerprint">verifyFingerprint</a></li><li data-type='method'><a href="MyLinkedDataKeyClass2019.html#.fingerprintFromPublicKey">fingerprintFromPublicKey</a></li><li data-type='method'><a href="MyLinkedDataKeyClass2019.html#.generate">generate</a></li></ul></li></ul>
+</nav>
+
+<div id="main">
+    
+
+    
+
+
+
+    
+
+
+    <section class="package">
+        <h3> </h3>		
+    </section>
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    <section class="readme">
+        <article><h1>Linked Data Signature Jose 2020</h1>
+<h2>Supported JWS Algs</h2>
+<p>If an <code>alg</code> is not specified, this library will assume the following:</p>
+<table>
+<thead>
+<tr>
+<th>kty</th>
+<th>crvOrSize</th>
+<th>alg</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OKP</td>
+<td>Ed25519</td>
+<td>EdDSA</td>
+</tr>
+<tr>
+<td>EC</td>
+<td>secp256k1</td>
+<td>ES256K</td>
+</tr>
+<tr>
+<td>EC</td>
+<td>P-256</td>
+<td>ES256</td>
+</tr>
+<tr>
+<td>RSA</td>
+<td>*</td>
+<td>PS256</td>
+</tr>
+</tbody>
+</table>
+<p>Other JWS are supported when <code>alg</code> is provided by the consuming library.</p>
+<h3>About Linked Data Signatures</h3>
+<p>A JSON-LD Signature has a verification key type, and a signature/proof type for example:</p>
+<ul>
+<li><code>JoseVerificationKey2020</code></li>
+<li><code>JoseLinkedDataSignature2020</code></li>
+</ul>
+<p>This library makes working with Linked Data Signatures trivial for developers familar with JOSE.</p>
+<ul>
+<li>
+<p><a href="./example/didDocJwks.json">example keystore</a>.</p>
+</li>
+<li>
+<p><a href="./example/didDoc.json">example did doc</a></p>
+</li>
+</ul>
+<p>You must provide both a json-ld context, and human readable documentation for every property you create for your signature suite.</p>
+<p>In this case, we define these verification key and proof formats, as well as the <code>publicKeyJwk</code> property.</p>
+<p>You can read the documentation here:</p>
+<p><a href="https://transmute-industries.github.io/lds-jose2020/">https://transmute-industries.github.io/lds-jose2020/</a></p>
+<p>And the context:</p>
+<p><a href="https://transmute-industries.github.io/lds-jose2020/contexts/lds-jose2020-v0.0.jsonld">https://transmute-industries.github.io/lds-jose2020/contexts/lds-jose2020-v0.0.jsonld</a></p>
+<p>You MUST always version context files, and MUST ensure they remain resolvable at their published path once they are in use.</p>
+<p>Failure to do so is similar to not maintaining an npm module, or unpublishing a module that may be used by others. If you are not sure if you can maintain a JSON-LD context, its best that you not create one, or rely on github / community structures to ensure that the context can easily be updated.</p>
+<h2>Getting Started</h2>
+<pre class="prettyprint source"><code>npm i
+npm run test
+npm run coverage
+npm run docs
+</code></pre>
+<p>Built on top of: <a href="https://www.npmjs.com/package/jose">https://www.npmjs.com/package/jose</a></p>
+<h2>License</h2>
+<p>These examples are meant to be used with <a href="https://github.com/digitalbazaar/jsonld-signatures">https://github.com/digitalbazaar/jsonld-signatures</a></p>
+<p>I've pulled some of the interface machinery from their implementation, in order to try and provide a more black box interface for creating signature suites, but if you are an advanced user, I recommend you extend their base classes directly and not use this repo.</p></article>
+    </section>
+
+
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Sat Jan 18 2020 17:15:47 GMT-0600 (Central Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+<script src="scripts/search.js" defer></script>
+
+
+
+</body>
+</html>
