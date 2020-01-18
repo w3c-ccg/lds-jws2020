@@ -1,7 +1,8 @@
 {
   "name": "lds-jose2020",
   "version": "1.0.0",
-  "description": "Linked Data Signature Suite for JOSE.",
+  "description": "Linked Data Signatures for JOSE",
+  "homepage": "https://did-key.web.app/",
   "main": "./src/index.js",
   "scripts": {
     "test": "jest",
@@ -17,7 +18,6 @@
   "bugs": {
     "url": "https://github.com/transmute-industries/lds-jose2020/issues"
   },
-  "homepage": "https://github.com/transmute-industries/lds-jose2020#readme",
   "dependencies": {
     "@panva/jose": "^1.9.2",
     "base64url": "^3.0.1",

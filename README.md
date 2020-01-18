@@ -1,4 +1,4 @@
-# Linked Data Signature Jose 2020
+# Linked Data Signatures for JOSE
 
 ## Supported JWS Algs
 
@@ -53,8 +53,4 @@ npm run docs
 
 Built on top of: [https://www.npmjs.com/package/jose](https://www.npmjs.com/package/jose)
 
-## License
-
-These examples are meant to be used with [https://github.com/digitalbazaar/jsonld-signatures](https://github.com/digitalbazaar/jsonld-signatures)
-
-I've pulled some of the interface machinery from their implementation, in order to try and provide a more black box interface for creating signature suites, but if you are an advanced user, I recommend you extend their base classes directly and not use this repo.
+Works with: [https://github.com/digitalbazaar/jsonld-signatures](https://github.com/digitalbazaar/jsonld-signatures)
