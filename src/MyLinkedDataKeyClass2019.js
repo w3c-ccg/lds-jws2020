@@ -20,16 +20,16 @@ class MyLinkedDataKeyClass2019 {
     this.publicKeyJwk = options.publicKeyJwk;
     this.alg = options.alg;
 
-    if (this.id === undefined) {
-      this.id = this.controller + "#" + this.fingerprint();
-    }
-
     if (this.publicKeyJwk === undefined) {
       this.publicKeyJwk = jose.JWK.asKey(this.privateKeyJwk).toJWK(false);
     }
 
     if (this.alg === undefined) {
       this.alg = getRecomendedAlg(this.publicKeyJwk);
+    }
+
+    if (this.id === undefined) {
+      this.id = this.controller + "#" + this.fingerprint();
     }
   }
 

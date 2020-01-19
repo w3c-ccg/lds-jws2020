@@ -60,7 +60,7 @@ const addKey = async ({ kty, crvOrSize, alg }) => {
   return key;
 };
 
-describe("generate example did document", () => {
+describe.skip("generate example did document", () => {
   it("should add all supported key types", async () => {
     await Promise.all(supportedKeyTypes.map(addKey));
     fs.writeFileSync(

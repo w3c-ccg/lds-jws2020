@@ -1,4 +1,3 @@
-const didDoc = require("../../docs/example/didDoc.json");
 const didDocJwks = require("../../docs/example/didDocJwks.json");
 
 const {

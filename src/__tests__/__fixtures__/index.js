@@ -1,5 +1,7 @@
 const documentLoader = require("./customDocumentLoader");
 
+const didDocJwks = require("../../../docs/example/didDocJwks.json");
+
 // let myLdKey = await MyLinkedDataKeyClass2019.generate("OKP", "Ed25519", {
 //   id: "test-id",
 //   type: "test-type",
@@ -133,5 +135,6 @@ module.exports = {
   didKeyDoc2,
   didKeypair,
   authenticateMeActionDoc,
-  documentLoader
+  documentLoader,
+  didDocJwks
 };
