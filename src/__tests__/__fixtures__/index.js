@@ -151,5 +151,6 @@ module.exports = {
   didKeypair,
   authenticateMeActionDoc,
   documentLoader,
-  didDocJwks
+  didDocJwks,
+  credential,
 };
