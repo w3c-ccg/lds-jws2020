@@ -9,10 +9,10 @@ const {
   doc,
   credential,
   didDocJwks,
-} = require("./__fixtures__");
+} = require('./__fixtures__');
 const { AssertionProofPurpose } = jsigs.purposes;
 
-describe('vc-js', () => {
+describe('integration tests', () => {
   let suite;
   let key;
 
@@ -22,7 +22,7 @@ describe('vc-js', () => {
 
     key = new MyLinkedDataKeyClass2019({
       id: `${did}#${privateKeyJwk.kid}`,
-      type: "JoseVerificationKey2020",
+      type: 'JoseVerificationKey2020',
       controller: did,
       privateKeyJwk,
     });
@@ -35,40 +35,47 @@ describe('vc-js', () => {
     });
   });
 
-  it('should work as valid signature suite for signing and verifying a document', async () => {
-    // We need to do that because jsigs.sign modifies the credential... no bueno
-    const signed = await jsigs.sign({ ...doc }, {
-      compactProof: false,
-      documentLoader: documentLoader,
-      purpose: new AssertionProofPurpose(),
-      suite,
-    });
-    expect(signed.proof).toBeDefined();
+  describe('jsigs', () => {
+    it('should work as valid signature suite for signing and verifying a document', async () => {
+      // We need to do that because jsigs.sign modifies the credential... no bueno
+      const signed = await jsigs.sign(
+        { ...doc },
+        {
+          compactProof: false,
+          documentLoader: documentLoader,
+          purpose: new AssertionProofPurpose(),
+          suite,
+        },
+      );
+      expect(signed.proof).toBeDefined();
 
-    const result = await jsigs.verify(signed, {
-      compactProof: false,
-      documentLoader: documentLoader,
-      purpose: new AssertionProofPurpose(),
-      suite,
+      const result = await jsigs.verify(signed, {
+        compactProof: false,
+        documentLoader: documentLoader,
+        purpose: new AssertionProofPurpose(),
+        suite,
+      });
+      expect(result.verified).toBeTruthy();
     });
-    expect(result.verified).toBeTruthy();
   });
 
-  it('should work as valid signature suite for issuing and verifying a credential', async () => {
-    const signedVC = await vc.issue({
-      credential: { ...credential },
-      compactProof: false,
-      suite
-    });
-    expect(signedVC.proof).toBeDefined();
+  describe('vc-js', () => {
+    it('should work as valid signature suite for issuing and verifying a credential', async () => {
+      const signedVC = await vc.issue({
+        credential: { ...credential },
+        compactProof: false,
+        suite,
+      });
+      expect(signedVC.proof).toBeDefined();
 
-    const result = await vc.verify({
-      credential: signedVC,
-      compactProof: false,
-      documentLoader: documentLoader,
-      purpose: new AssertionProofPurpose(),
-      suite,
+      const result = await vc.verify({
+        credential: signedVC,
+        compactProof: false,
+        documentLoader: documentLoader,
+        purpose: new AssertionProofPurpose(),
+        suite,
+      });
+      expect(result.verified).toBeTruthy();
     });
-    expect(result.verified).toBeTruthy();
   });
 });
