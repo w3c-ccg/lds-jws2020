@@ -1,5 +1,4 @@
 const jose = require("jose");
-const base64url = require("base64url-universal");
 
 const key = {
   kty: "OKP",

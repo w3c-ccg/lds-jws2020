@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const jsonld = require("jsonld");
 
 const contexts = {
   "https://w3id.org/did/v1": require("./contexts/did-v0.11.json"),
@@ -33,8 +34,7 @@ const customLoader = url => {
       documentUrl: url // this is the actual context URL after redirects
     };
   }
-  console.error("No custom context support for " + url);
-  throw new Error("No custom context support for " + url);
+  return jsonld.documentLoaders.node()(url);
 };
 
 module.exports = customLoader;
