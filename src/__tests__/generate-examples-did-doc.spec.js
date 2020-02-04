@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const jose = require("jose");
 
-const { MyLinkedDataKeyClass2019 } = require("../index");
+const { JoseLinkedDataKeyClass2020 } = require("../index");
 const didDoc = {
   "@context": "https://w3id.org/did/v1",
   id: "did:example:123",
@@ -39,7 +39,7 @@ const supportedKeyTypes = [
 const jwks = new jose.JWKS.KeyStore();
 
 const addKey = async ({ kty, crvOrSize, alg }) => {
-  let key = await MyLinkedDataKeyClass2019.generate(kty, crvOrSize, {
+  let key = await JoseLinkedDataKeyClass2020.generate(kty, crvOrSize, {
     // when ommited, will be generated from controller and fingerprint.
     // id: "test-id",
     type: "JoseVerificationKey2020",

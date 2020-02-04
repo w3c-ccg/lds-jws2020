@@ -1,15 +1,15 @@
 const base64url = require("base64url");
-const { MyLinkedDataKeyClass2019 } = require("../index");
+const { JoseLinkedDataKeyClass2020 } = require("../index");
 const { myLdKey } = require("./__fixtures__");
 
-const key = new MyLinkedDataKeyClass2019(myLdKey);
+const key = new JoseLinkedDataKeyClass2020(myLdKey);
 const { sign } = key.signer();
 const { verify } = key.verifier();
 const data = new Uint8Array([128]);
 
-describe("MyLinkedDataKeyClass2019", () => {
+describe("JoseLinkedDataKeyClass2020", () => {
   it("generate", async () => {
-    let myLdKey = await MyLinkedDataKeyClass2019.generate("OKP", "Ed25519", {
+    let myLdKey = await JoseLinkedDataKeyClass2020.generate("OKP", "Ed25519", {
       id: "test-id",
       type: "test-type",
       controller: "test-controller"

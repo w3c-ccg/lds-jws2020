@@ -1,7 +1,7 @@
 const jsigs = require('jsonld-signatures');
 const vc = require('vc-js');
 const {
-  MyLinkedDataKeyClass2019,
+  JoseLinkedDataKeyClass2020,
   JoseLinkedDataSignature2020,
 } = require('../');
 const {
@@ -20,7 +20,7 @@ describe('integration tests', () => {
     const privateKeyJwk = didDocJwks.keys[1];
     const did = 'did:example:123';
 
-    key = new MyLinkedDataKeyClass2019({
+    key = new JoseLinkedDataKeyClass2020({
       id: `${did}#${privateKeyJwk.kid}`,
       type: 'JoseVerificationKey2020',
       controller: did,
@@ -28,7 +28,7 @@ describe('integration tests', () => {
     });
 
     suite = new JoseLinkedDataSignature2020({
-      LDKeyClass: MyLinkedDataKeyClass2019,
+      LDKeyClass: JoseLinkedDataKeyClass2020,
       linkedDataSigantureType: 'JoseLinkedDataSignature2020',
       linkedDataSignatureVerificationKeyType: 'JoseVerificationKey2020',
       key,

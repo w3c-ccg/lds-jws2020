@@ -1,4 +1,4 @@
 module.exports = {
-  MyLinkedDataKeyClass2019: require("./MyLinkedDataKeyClass2019"),
+  JoseLinkedDataKeyClass2020: require("./JoseLinkedDataKeyClass2020"),
   JoseLinkedDataSignature2020: require("./JoseLinkedDataSignature2020")
 };

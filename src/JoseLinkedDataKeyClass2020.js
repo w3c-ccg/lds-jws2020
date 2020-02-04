@@ -3,7 +3,7 @@ const base64url = require("base64url");
 
 const getRecomendedAlg = require("./getRecomendedAlg");
 
-class MyLinkedDataKeyClass2019 {
+class JoseLinkedDataKeyClass2020 {
   /**
    * @param {KeyPairOptions} options - The options to use.
    * @param {string} options.id - The key ID.
@@ -55,11 +55,11 @@ class MyLinkedDataKeyClass2019 {
    * Generates a KeyPair with an optional deterministic seed.
    * @param {KeyPairOptions} [options={}] - The options to use.
    *
-   * @returns {Promise<MyLinkedDataKeyClass2019>} Generates a key pair.
+   * @returns {Promise<JoseLinkedDataKeyClass2020>} Generates a key pair.
    */
   static async generate(kty, crv, options = {}) {
     let key = jose.JWK.generateSync(kty, crv);
-    return new MyLinkedDataKeyClass2019({
+    return new JoseLinkedDataKeyClass2020({
       privateKeyJwk: key.toJWK(true),
       publicKeyJwk: key.toJWK(),
       ...options
@@ -137,7 +137,7 @@ class MyLinkedDataKeyClass2019 {
   }
 
   static async from(options) {
-    return new MyLinkedDataKeyClass2019(options);
+    return new JoseLinkedDataKeyClass2020(options);
   }
 
   /**
@@ -168,7 +168,7 @@ class MyLinkedDataKeyClass2019 {
  * Returns an object with an async sign function.
  * The sign function is bound to the KeyPair
  * and then returned by the KeyPair's signer method.
- * @param {MyLinkedDataKeyClass2019} key - An MyLinkedDataKeyClass2019.
+ * @param {JoseLinkedDataKeyClass2020} key - An JoseLinkedDataKeyClass2020.
  *
  * @returns {{sign: Function}} An object with an async function sign
  * using the private key passed in.
@@ -205,7 +205,7 @@ function joseSignerFactory(key) {
  * Returns an object with an async verify function.
  * The verify function is bound to the KeyPair
  * and then returned by the KeyPair's verifier method.
- * @param {MyLinkedDataKeyClass2019} key - An MyLinkedDataKeyClass2019.
+ * @param {JoseLinkedDataKeyClass2020} key - An JoseLinkedDataKeyClass2020.
  *
  * @returns {{verify: Function}} An async verifier specific
  * to the key passed in.
@@ -274,4 +274,4 @@ joseVerifierFactory = key => {
   };
 };
 
-module.exports = MyLinkedDataKeyClass2019;
+module.exports = JoseLinkedDataKeyClass2020;
