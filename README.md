@@ -11,7 +11,7 @@ The expected alg will be determined by the following table.
 | OKP | Ed25519   | EdDSA  |
 | EC  | secp256k1 | ES256K |
 | EC  | P-256     | ES256  |
-| RSA | \*        | PS256  |
+| RSA | 4096      | PS256  |
 
 ### About Linked Data Signatures
 
