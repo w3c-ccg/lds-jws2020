@@ -2,6 +2,18 @@
 
 [View On Github](https://github.com/transmute-industries/lds-jws2020)
 
+## Security Considerations
+
+You should be aware that some of these curves are not considered safe:
+
+- https://safecurves.cr.yp.to/
+
+If you will only ever need to support Ed25519 or only Secp256k1, you should consider using a restricted Linked Data Signature Suite like:
+
+- [Ed25519Signature2018](https://github.com/digitalbazaar/jsonld-signatures/blob/master/lib/suites/Ed25519Signature2018.js)
+
+- [EcdsaSecp256k1Signature2019](https://github.com/decentralized-identity/lds-ecdsa-secp256k1-2019.js)
+
 ## Supported JWS Algs
 
 The expected alg will be determined by the following table.
