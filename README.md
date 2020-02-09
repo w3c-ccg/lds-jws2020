@@ -1,4 +1,4 @@
-# Linked Data Signatures for JOSE
+# Linked Data Signatures for JWS
 
 [View On Github](https://github.com/transmute-industries/lds-jws2020)
 
@@ -22,7 +22,7 @@ A JSON-LD Signature has a verification key type, and a signature/proof type for 
 - `JwsVerificationKey2020`
 - `JsonWebSignature2020`
 
-This library makes working with Linked Data Signatures trivial for developers familar with JOSE.
+This library makes working with Linked Data Signatures trivial for developers familar with JWS.
 
 - [example keystore](./example/didDocJwks.json).
 
