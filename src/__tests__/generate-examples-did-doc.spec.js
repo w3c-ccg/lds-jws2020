@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const jose = require("jose");
 
-const { JoseLinkedDataKeyClass2020 } = require("../index");
+const { JsonWebKeyLinkedDataKeyClass2020 } = require("../index");
 const didDoc = {
   "@context": "https://w3id.org/did/v1",
   id: "did:example:123",
@@ -16,42 +16,36 @@ const didDoc = {
 const supportedKeyTypes = [
   {
     kty: "OKP",
-    crvOrSize: "Ed25519",
-    alg: "EdDSA"
+    crvOrSize: "Ed25519"
   },
   {
     kty: "EC",
-    crvOrSize: "secp256k1",
-    alg: "ES256K"
+    crvOrSize: "secp256k1"
   },
   {
     kty: "RSA",
-    crvOrSize: 4096,
-    alg: "RS256"
+    crvOrSize: 4096
   },
   {
     kty: "EC",
-    crvOrSize: "P-256",
-    alg: "ES256"
+    crvOrSize: "P-256"
   }
 ];
 
 const jwks = new jose.JWKS.KeyStore();
 
-const addKey = async ({ kty, crvOrSize, alg }) => {
-  let key = await JoseLinkedDataKeyClass2020.generate(kty, crvOrSize, {
+const addKey = async ({ kty, crvOrSize }) => {
+  let key = await JsonWebKeyLinkedDataKeyClass2020.generate(kty, crvOrSize, {
     // when ommited, will be generated from controller and fingerprint.
     // id: "test-id",
     type: "JwsVerificationKey2020",
-    controller: "did:example:123",
-    alg
+    controller: "did:example:123"
   });
 
   jwks.add(jose.JWK.asKey(key.privateKeyJwk));
 
   const publicKey = { ...key };
   delete publicKey.privateKeyJwk;
-  delete publicKey.alg;
   didDoc.publicKey.push(publicKey);
   didDoc.authentication.push(publicKey.id);
   didDoc.assertionMethod.push(publicKey.id);
@@ -60,7 +54,7 @@ const addKey = async ({ kty, crvOrSize, alg }) => {
   return key;
 };
 
-describe.skip("generate example did document", () => {
+describe("generate example did document", () => {
   it("should add all supported key types", async () => {
     await Promise.all(supportedKeyTypes.map(addKey));
     fs.writeFileSync(

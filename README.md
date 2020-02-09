@@ -4,7 +4,7 @@
 
 ## Supported JWS Algs
 
-If an `alg` is not specified, this library will assume the following:
+The expected alg will be determined by the following table.
 
 | kty | crvOrSize | alg    |
 | --- | --------- | ------ |
@@ -12,8 +12,6 @@ If an `alg` is not specified, this library will assume the following:
 | EC  | secp256k1 | ES256K |
 | EC  | P-256     | ES256  |
 | RSA | \*        | PS256  |
-
-Other JWS are supported when `alg` is provided by the consuming library.
 
 ### About Linked Data Signatures
 

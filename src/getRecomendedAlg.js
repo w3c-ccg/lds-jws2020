@@ -11,6 +11,7 @@ const getRecomendedAlg = ({ kty, crv }) => {
   if (kty === "RSA") {
     return "PS256";
   }
+  throw new Error("No prefferd alg found for" + kty + " " + crv);
 };
 
 module.exports = getRecomendedAlg;

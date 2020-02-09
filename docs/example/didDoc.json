@@ -3,74 +3,78 @@
   "id": "did:example:123",
   "publicKey": [
     {
-      "id": "did:example:123#gb3fR275xH8I_9frTsPu4xPAvIvP_SGn0L24Ooi1TMA",
+      "id": "did:example:123#09J3HrrQRF4-DaOpvn62DTXmEL5h6Ra6l53k5-ynYIM",
       "type": "JwsVerificationKey2020",
       "controller": "did:example:123",
       "publicKeyJwk": {
         "crv": "Ed25519",
-        "x": "2xQyOeya0hhRCD4mU0p4QUoUCzlhhLZZYKBq7edP3Uk",
+        "x": "cZcWiVOskyIscBLxGvWciGrnnZyRic8tSwRg81NJqVI",
         "kty": "OKP",
-        "kid": "gb3fR275xH8I_9frTsPu4xPAvIvP_SGn0L24Ooi1TMA"
-      }
+        "kid": "09J3HrrQRF4-DaOpvn62DTXmEL5h6Ra6l53k5-ynYIM"
+      },
+      "alg": "EdDSA"
     },
     {
-      "id": "did:example:123#QhxsKsp2LNvS9cNp1STyryOiOrEs6f819AGemNVN5N0",
+      "id": "did:example:123#920OGyjmLjQNcjJmeIWM4wIZ3FcN5iiLToj5JRuGC3M",
       "type": "JwsVerificationKey2020",
       "controller": "did:example:123",
       "publicKeyJwk": {
         "crv": "secp256k1",
-        "x": "JA5UfdPhdE3EdABYdSmhx06Xts7xCWOc0-zTMO-7byg",
-        "y": "2ptGJHu6oSdyEMk--9yAD6okUK9h-2BU4mzyn7rDzxE",
+        "x": "2p9h8I2nFBoHGaC4FrsRwkFX8hV-CPi72sWGuB_uy5k",
+        "y": "XQj8t_UiprOPttvUmaUkTKPHu94mQ4kcB5woz-Fd86E",
         "kty": "EC",
-        "kid": "QhxsKsp2LNvS9cNp1STyryOiOrEs6f819AGemNVN5N0"
-      }
+        "kid": "920OGyjmLjQNcjJmeIWM4wIZ3FcN5iiLToj5JRuGC3M"
+      },
+      "alg": "ES256K"
     },
     {
-      "id": "did:example:123#CZAHrzBc-MUDGPTepWmKOGAjj3SituYp-jXeei2iHv4",
+      "id": "did:example:123#ziOH82TX1qotsTFReArlMG0nWQ1qy-xI0fWv_Mc4ZWc",
       "type": "JwsVerificationKey2020",
       "controller": "did:example:123",
       "publicKeyJwk": {
         "e": "AQAB",
-        "n": "wtcFdcFX3zUw80ivB_GOxrupncDc474A22PVHU6S1jgv4OvHsolwRDXKyCFTJUhOVKpjwyL76bLKplAWveBu8Sdod4hxHE7ydc5N569LO4ZoktYIfEkHHCsMiLmH0Bt8o-HxBwz58ur1nJgPfmxvWF_eRr5jU3keo_cC20aT2yEKItCo8AiGEo8mpYCCZjHQpo5lE0Fgd7yvTC_O1NIrymMBLTKWe7zfRh3zHvXzCWq86idG4r6OP5_MfkwMn2owZTDDRfa38aFue2VckBzH6QlBvBm9qLq5NRf_OqBLFclQV2SK-iAxrWUDAFX-arcwpED4NHGDLQ-6aePUnbMVE9RPeDhR7BoVJaBas-NqyhmcKqb7uO4pi9PK3JNWZ2S4eM9K4FqAy3Xnji0-Q3hNSg-S-8A0mUsWTZFXj9B81ewJihopISWhuQYiU6CJIVKRPf5g9N6l7lwQzyMHTysuUkWr_c6EbsmJG3DOUkjAhrfqGkOyt78_1peBTzof7Yj2dI4bE-l_tgpbPlcchjGZnH5V6GS2FKuE9INvtn3Gllc-vPhKEZcMMBSX35RA1MI1uORANm6ps7Ryaa6GX5fqxss63kjjs4keCDEebKyzaQTwg2p18o6qHfV0HOuE2EuP2c27Uat-16mlGr70vRs35WQ563w57pfRUXvZDU52fU0",
+        "n": "urJ-R_6pMAAw9dKi5GT0Aw_c7KqqkKfAiy4nZpgI_TbMpZUfpcrK_1ot59_Tnu_rDP1bssACbEgKnQoqgz7MnpVqPFPddJq9bgGIbrw4fKzWSgBNmp34jwMz8A1t9LLXMmR5Agxzz5TVwY2-PRDTLh_4A45HJiE-8pst68A8qUxT1xbzgg1sgaS1_jPM_mMloI6LuLrlom6G3ERKimHL_TKyI-E-WzzCQdUnoSqD2H0BN95oVJvBIVu37YR3zo96CVcitgWkbVCHklnplApLFcV5I8SqWLzM5_bQKpSAqSYfa9GISPHM_iB5xI_Uqlqu8Uje6_LrF6_lXy2D5QxUdKivrAIEiv7MPjPCeT1l2TgyzKi-mNSHmkr4XlpSMrfTUb0obKsgKHzw_edkdvvRRZJt1B_GzDbqGOs4rxkjEwYB3QE3p5Uiefghk0BR46AhHfCBj_1XW0fRt4bRfxIVTz5WeaUWzaI_3K9RvVFSKKdJYGUhGC9ETUgy9G7tfAKY5u59Z_kpyGiC0BW56c4ifhV7r0EEIzunh2PpuE41dv6qcMfSZWjNsDiC6Y2e_zfIFAmmpiXZpH4FcqrTLo8PqMYW3OLZMWOehk5omAM5YVHL61aXNn1nwY5YKFOkdFw7C7wvTf6PWL3uhMXyyxRf70XrXeBti-G___s6ttcVloM",
         "kty": "RSA",
-        "kid": "CZAHrzBc-MUDGPTepWmKOGAjj3SituYp-jXeei2iHv4"
-      }
+        "kid": "ziOH82TX1qotsTFReArlMG0nWQ1qy-xI0fWv_Mc4ZWc"
+      },
+      "alg": "PS256"
     },
     {
-      "id": "did:example:123#x66q_lHDt3nG_MeFcEqtHYQyh49UhB25YbpGlZmSsyY",
+      "id": "did:example:123#sSTvXLGf7YFAkTbXMsAZPAOUS1na3_zIuQnsHm9HwFc",
       "type": "JwsVerificationKey2020",
       "controller": "did:example:123",
       "publicKeyJwk": {
         "crv": "P-256",
-        "x": "2YvkXVqxcfo2QiykZEt0iW1zu0yGyvxLw6cNQ362srI",
-        "y": "Uiab1n9HdVC23Qa70E8BEOCKABzHEAuZaraYx6KiXzI",
+        "x": "0H5zaqUkkcu-7dCQjAoCXfQoqAMVv9D_Ciq4X6bVzIo",
+        "y": "xOQ8wUfGSpcvq-6X76o_lvcMEk_DEwTriSp9c-SBDs4",
         "kty": "EC",
-        "kid": "x66q_lHDt3nG_MeFcEqtHYQyh49UhB25YbpGlZmSsyY"
-      }
+        "kid": "sSTvXLGf7YFAkTbXMsAZPAOUS1na3_zIuQnsHm9HwFc"
+      },
+      "alg": "ES256"
     }
   ],
   "authentication": [
-    "did:example:123#gb3fR275xH8I_9frTsPu4xPAvIvP_SGn0L24Ooi1TMA",
-    "did:example:123#QhxsKsp2LNvS9cNp1STyryOiOrEs6f819AGemNVN5N0",
-    "did:example:123#CZAHrzBc-MUDGPTepWmKOGAjj3SituYp-jXeei2iHv4",
-    "did:example:123#x66q_lHDt3nG_MeFcEqtHYQyh49UhB25YbpGlZmSsyY"
+    "did:example:123#09J3HrrQRF4-DaOpvn62DTXmEL5h6Ra6l53k5-ynYIM",
+    "did:example:123#920OGyjmLjQNcjJmeIWM4wIZ3FcN5iiLToj5JRuGC3M",
+    "did:example:123#ziOH82TX1qotsTFReArlMG0nWQ1qy-xI0fWv_Mc4ZWc",
+    "did:example:123#sSTvXLGf7YFAkTbXMsAZPAOUS1na3_zIuQnsHm9HwFc"
   ],
   "assertionMethod": [
-    "did:example:123#gb3fR275xH8I_9frTsPu4xPAvIvP_SGn0L24Ooi1TMA",
-    "did:example:123#QhxsKsp2LNvS9cNp1STyryOiOrEs6f819AGemNVN5N0",
-    "did:example:123#CZAHrzBc-MUDGPTepWmKOGAjj3SituYp-jXeei2iHv4",
-    "did:example:123#x66q_lHDt3nG_MeFcEqtHYQyh49UhB25YbpGlZmSsyY"
+    "did:example:123#09J3HrrQRF4-DaOpvn62DTXmEL5h6Ra6l53k5-ynYIM",
+    "did:example:123#920OGyjmLjQNcjJmeIWM4wIZ3FcN5iiLToj5JRuGC3M",
+    "did:example:123#ziOH82TX1qotsTFReArlMG0nWQ1qy-xI0fWv_Mc4ZWc",
+    "did:example:123#sSTvXLGf7YFAkTbXMsAZPAOUS1na3_zIuQnsHm9HwFc"
   ],
   "capabilityDelegation": [
-    "did:example:123#gb3fR275xH8I_9frTsPu4xPAvIvP_SGn0L24Ooi1TMA",
-    "did:example:123#QhxsKsp2LNvS9cNp1STyryOiOrEs6f819AGemNVN5N0",
-    "did:example:123#CZAHrzBc-MUDGPTepWmKOGAjj3SituYp-jXeei2iHv4",
-    "did:example:123#x66q_lHDt3nG_MeFcEqtHYQyh49UhB25YbpGlZmSsyY"
+    "did:example:123#09J3HrrQRF4-DaOpvn62DTXmEL5h6Ra6l53k5-ynYIM",
+    "did:example:123#920OGyjmLjQNcjJmeIWM4wIZ3FcN5iiLToj5JRuGC3M",
+    "did:example:123#ziOH82TX1qotsTFReArlMG0nWQ1qy-xI0fWv_Mc4ZWc",
+    "did:example:123#sSTvXLGf7YFAkTbXMsAZPAOUS1na3_zIuQnsHm9HwFc"
   ],
   "capabilityInvocation": [
-    "did:example:123#gb3fR275xH8I_9frTsPu4xPAvIvP_SGn0L24Ooi1TMA",
-    "did:example:123#QhxsKsp2LNvS9cNp1STyryOiOrEs6f819AGemNVN5N0",
-    "did:example:123#CZAHrzBc-MUDGPTepWmKOGAjj3SituYp-jXeei2iHv4",
-    "did:example:123#x66q_lHDt3nG_MeFcEqtHYQyh49UhB25YbpGlZmSsyY"
+    "did:example:123#09J3HrrQRF4-DaOpvn62DTXmEL5h6Ra6l53k5-ynYIM",
+    "did:example:123#920OGyjmLjQNcjJmeIWM4wIZ3FcN5iiLToj5JRuGC3M",
+    "did:example:123#ziOH82TX1qotsTFReArlMG0nWQ1qy-xI0fWv_Mc4ZWc",
+    "did:example:123#sSTvXLGf7YFAkTbXMsAZPAOUS1na3_zIuQnsHm9HwFc"
   ]
 }

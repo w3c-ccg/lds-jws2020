@@ -1,6 +1,9 @@
 const jsigs = require("jsonld-signatures");
 const vc = require("vc-js");
-const { JoseLinkedDataKeyClass2020, JsonWebSignature2020 } = require("../");
+const {
+  JsonWebKeyLinkedDataKeyClass2020,
+  JsonWebSignature2020
+} = require("../");
 const {
   documentLoader,
   doc,
@@ -17,7 +20,7 @@ describe("integration tests", () => {
     const privateKeyJwk = didDocJwks.keys[1];
     const did = "did:example:123";
 
-    key = new JoseLinkedDataKeyClass2020({
+    key = new JsonWebKeyLinkedDataKeyClass2020({
       id: `${did}#${privateKeyJwk.kid}`,
       type: "JwsVerificationKey2020",
       controller: did,
@@ -25,7 +28,7 @@ describe("integration tests", () => {
     });
 
     suite = new JsonWebSignature2020({
-      LDKeyClass: JoseLinkedDataKeyClass2020,
+      LDKeyClass: JsonWebKeyLinkedDataKeyClass2020,
       linkedDataSigantureType: "JsonWebSignature2020",
       linkedDataSignatureVerificationKeyType: "JwsVerificationKey2020",
       key
