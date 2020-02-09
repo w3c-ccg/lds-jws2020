@@ -42,7 +42,7 @@ const addKey = async ({ kty, crvOrSize, alg }) => {
   let key = await JoseLinkedDataKeyClass2020.generate(kty, crvOrSize, {
     // when ommited, will be generated from controller and fingerprint.
     // id: "test-id",
-    type: "JoseVerificationKey2020",
+    type: "JwsVerificationKey2020",
     controller: "did:example:123",
     alg
   });

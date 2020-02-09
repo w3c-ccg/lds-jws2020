@@ -1,5 +1,5 @@
 {
-  "name": "lds-jose2020",
+  "name": "lds-jws2020",
   "version": "1.0.0",
   "description": "Linked Data Signatures for JOSE",
   "homepage": "https://did-key.web.app/",
@@ -11,12 +11,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/transmute-industries/lds-jose2020.git"
+    "url": "git+https://github.com/transmute-industries/lds-jws2020.git"
   },
   "author": "",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/transmute-industries/lds-jose2020/issues"
+    "url": "https://github.com/transmute-industries/lds-jws2020/issues"
   },
   "dependencies": {
     "@panva/jose": "^1.9.2",

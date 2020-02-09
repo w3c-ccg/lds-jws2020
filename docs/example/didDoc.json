@@ -4,7 +4,7 @@
   "publicKey": [
     {
       "id": "did:example:123#gb3fR275xH8I_9frTsPu4xPAvIvP_SGn0L24Ooi1TMA",
-      "type": "JoseVerificationKey2020",
+      "type": "JwsVerificationKey2020",
       "controller": "did:example:123",
       "publicKeyJwk": {
         "crv": "Ed25519",
@@ -15,7 +15,7 @@
     },
     {
       "id": "did:example:123#QhxsKsp2LNvS9cNp1STyryOiOrEs6f819AGemNVN5N0",
-      "type": "JoseVerificationKey2020",
+      "type": "JwsVerificationKey2020",
       "controller": "did:example:123",
       "publicKeyJwk": {
         "crv": "secp256k1",
@@ -27,7 +27,7 @@
     },
     {
       "id": "did:example:123#CZAHrzBc-MUDGPTepWmKOGAjj3SituYp-jXeei2iHv4",
-      "type": "JoseVerificationKey2020",
+      "type": "JwsVerificationKey2020",
       "controller": "did:example:123",
       "publicKeyJwk": {
         "e": "AQAB",
@@ -38,7 +38,7 @@
     },
     {
       "id": "did:example:123#x66q_lHDt3nG_MeFcEqtHYQyh49UhB25YbpGlZmSsyY",
-      "type": "JoseVerificationKey2020",
+      "type": "JwsVerificationKey2020",
       "controller": "did:example:123",
       "publicKeyJwk": {
         "crv": "P-256",

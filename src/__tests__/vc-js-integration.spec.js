@@ -1,42 +1,39 @@
-const jsigs = require('jsonld-signatures');
-const vc = require('vc-js');
-const {
-  JoseLinkedDataKeyClass2020,
-  JoseLinkedDataSignature2020,
-} = require('../');
+const jsigs = require("jsonld-signatures");
+const vc = require("vc-js");
+const { JoseLinkedDataKeyClass2020, JsonWebSignature2020 } = require("../");
 const {
   documentLoader,
   doc,
   credential,
-  didDocJwks,
-} = require('./__fixtures__');
+  didDocJwks
+} = require("./__fixtures__");
 const { AssertionProofPurpose } = jsigs.purposes;
 
-describe('integration tests', () => {
+describe("integration tests", () => {
   let suite;
   let key;
 
   beforeAll(async () => {
     const privateKeyJwk = didDocJwks.keys[1];
-    const did = 'did:example:123';
+    const did = "did:example:123";
 
     key = new JoseLinkedDataKeyClass2020({
       id: `${did}#${privateKeyJwk.kid}`,
-      type: 'JoseVerificationKey2020',
+      type: "JwsVerificationKey2020",
       controller: did,
-      privateKeyJwk,
+      privateKeyJwk
     });
 
-    suite = new JoseLinkedDataSignature2020({
+    suite = new JsonWebSignature2020({
       LDKeyClass: JoseLinkedDataKeyClass2020,
-      linkedDataSigantureType: 'JoseLinkedDataSignature2020',
-      linkedDataSignatureVerificationKeyType: 'JoseVerificationKey2020',
-      key,
+      linkedDataSigantureType: "JsonWebSignature2020",
+      linkedDataSignatureVerificationKeyType: "JwsVerificationKey2020",
+      key
     });
   });
 
-  describe('jsigs', () => {
-    it('should work as valid signature suite for signing and verifying a document', async () => {
+  describe("jsigs", () => {
+    it("should work as valid signature suite for signing and verifying a document", async () => {
       // We need to do that because jsigs.sign modifies the credential... no bueno
       const signed = await jsigs.sign(
         { ...doc },
@@ -44,8 +41,8 @@ describe('integration tests', () => {
           compactProof: false,
           documentLoader: documentLoader,
           purpose: new AssertionProofPurpose(),
-          suite,
-        },
+          suite
+        }
       );
       expect(signed.proof).toBeDefined();
 
@@ -53,18 +50,18 @@ describe('integration tests', () => {
         compactProof: false,
         documentLoader: documentLoader,
         purpose: new AssertionProofPurpose(),
-        suite,
+        suite
       });
       expect(result.verified).toBeTruthy();
     });
   });
 
-  describe('vc-js', () => {
-    it('should work as valid signature suite for issuing and verifying a credential', async () => {
+  describe("vc-js", () => {
+    it("should work as valid signature suite for issuing and verifying a credential", async () => {
       const signedVC = await vc.issue({
         credential: { ...credential },
         compactProof: false,
-        suite,
+        suite
       });
       expect(signedVC.proof).toBeDefined();
 
@@ -73,7 +70,7 @@ describe('integration tests', () => {
         compactProof: false,
         documentLoader: documentLoader,
         purpose: new AssertionProofPurpose(),
-        suite,
+        suite
       });
       expect(result.verified).toBeTruthy();
     });

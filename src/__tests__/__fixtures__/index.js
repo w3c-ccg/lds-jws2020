@@ -29,7 +29,7 @@ const myLdKey = {
 
 const doc = {
   "@context": [
-    "https://transmute-industries.github.io/lds-jose2020/contexts/lds-jose2020-v0.0.jsonld",
+    "https://transmute-industries.github.io/lds-jws2020/contexts/lds-jws2020-v0.0.jsonld",
     {
       schema: "http://schema.org/",
       name: "schema:name",
@@ -129,18 +129,18 @@ const didKeyDoc2 = {
 };
 
 const credential = {
-  '@context': [
-    'https://www.w3.org/2018/credentials/v1',
-    'https://www.w3.org/2018/credentials/examples/v1',
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://www.w3.org/2018/credentials/examples/v1"
   ],
-  id: 'https://example.com/credentials/1872',
-  type: ['VerifiableCredential', 'AlumniCredential'],
-  issuer: 'did:example:123',
-  issuanceDate: '2010-01-01T19:23:24Z',
+  id: "https://example.com/credentials/1872",
+  type: ["VerifiableCredential", "AlumniCredential"],
+  issuer: "did:example:123",
+  issuanceDate: "2010-01-01T19:23:24Z",
   credentialSubject: {
-    id: 'did:example:ebfeb1f712ebc6f1c276e12ec21',
-    alumniOf: 'Example University',
-  },
+    id: "did:example:ebfeb1f712ebc6f1c276e12ec21",
+    alumniOf: "Example University"
+  }
 };
 
 module.exports = {
@@ -152,5 +152,5 @@ module.exports = {
   authenticateMeActionDoc,
   documentLoader,
   didDocJwks,
-  credential,
+  credential
 };
