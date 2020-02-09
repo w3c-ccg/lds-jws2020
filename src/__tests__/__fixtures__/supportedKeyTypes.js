@@ -9,7 +9,7 @@ const supportedKeyTypes = [
   },
   {
     kty: "RSA",
-    crvOrSize: 4096
+    crvOrSize: 2048
   },
   {
     kty: "EC",

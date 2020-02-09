@@ -11,7 +11,7 @@
   },
   {
     "kty": "RSA",
-    "crvOrSize": 4096,
+    "crvOrSize": 2048,
     "alg": "PS256"
   },
   {

@@ -55,6 +55,7 @@ const addKey = async ({ kty, crvOrSize }) => {
 
   const publicKey = { ...key };
   delete publicKey.privateKeyJwk;
+  delete publicKey.alg;
   didDoc.publicKey.push(publicKey);
   didDoc.authentication.push(publicKey.id);
   didDoc.assertionMethod.push(publicKey.id);
@@ -63,7 +64,7 @@ const addKey = async ({ kty, crvOrSize }) => {
   return key;
 };
 
-describe("generate example did document", () => {
+describe.skip("generate example did document", () => {
   it("should add all supported key types", async () => {
     await Promise.all(supportedKeyTypes.map(addKey));
     fs.writeFileSync(
@@ -101,7 +102,7 @@ describe("generate example did document", () => {
           crvOrSize = publicKey.publicKeyJwk.crv;
         } else {
           //assume RSA
-          crvOrSize = 4096;
+          crvOrSize = 2048;
         }
 
         tableJson.push({
