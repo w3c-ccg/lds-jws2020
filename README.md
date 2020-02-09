@@ -13,6 +13,8 @@ The expected alg will be determined by the following table.
 | EC  | P-256     | ES256  |
 | RSA | 4096      | PS256  |
 
+Anything else will result in an unsupported alg error.
+
 ### About Linked Data Signatures
 
 A JSON-LD Signature has a verification key type, and a signature/proof type for example:
