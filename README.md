@@ -1,6 +1,6 @@
 # Linked Data Signatures for JOSE
 
-[View On Github](https://github.com/transmute-industries/lds-jose2020)
+[View On Github](https://github.com/transmute-industries/lds-jws2020)
 
 ## Supported JWS Algs
 
@@ -19,8 +19,8 @@ Other JWS are supported when `alg` is provided by the consuming library.
 
 A JSON-LD Signature has a verification key type, and a signature/proof type for example:
 
-- `JoseVerificationKey2020`
-- `JoseLinkedDataSignature2020`
+- `JwsVerificationKey2020`
+- `JsonWebSignature2020`
 
 This library makes working with Linked Data Signatures trivial for developers familar with JOSE.
 
@@ -34,11 +34,11 @@ In this case, we define these verification key and proof formats, as well as the
 
 You can read the documentation here:
 
-[https://transmute-industries.github.io/lds-jose2020/](https://transmute-industries.github.io/lds-jose2020/)
+[https://transmute-industries.github.io/lds-jws2020/](https://transmute-industries.github.io/lds-jws2020/)
 
 And the context:
 
-[https://transmute-industries.github.io/lds-jose2020/contexts/lds-jose2020-v0.0.jsonld](https://transmute-industries.github.io/lds-jose2020/contexts/lds-jose2020-v0.0.jsonld)
+[https://transmute-industries.github.io/lds-jws2020/contexts/lds-jws2020-v0.0.jsonld](https://transmute-industries.github.io/lds-jws2020/contexts/lds-jws2020-v0.0.jsonld)
 
 You MUST always version context files, and MUST ensure they remain resolvable at their published path once they are in use.
 

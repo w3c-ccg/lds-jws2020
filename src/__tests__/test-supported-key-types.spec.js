@@ -2,7 +2,7 @@ const didDocJwks = require("../../docs/example/didDocJwks.json");
 
 const {
   JoseLinkedDataKeyClass2020,
-  JoseLinkedDataSignature2020
+  JsonWebSignature2020
 } = require("../index");
 
 const { documentLoader, doc } = require("./__fixtures__");
@@ -13,7 +13,7 @@ const { AssertionProofPurpose } = jsigs.purposes;
 const testJwk = async privateKeyJwk => {
   const key = new JoseLinkedDataKeyClass2020({
     id: "did:example:123#" + privateKeyJwk.kid,
-    type: "JoseVerificationKey2020",
+    type: "JwsVerificationKey2020",
     controller: "did:example:123",
     privateKeyJwk: privateKeyJwk
     // will be inferred
@@ -23,10 +23,10 @@ const testJwk = async privateKeyJwk => {
   const signed = await jsigs.sign(
     { ...doc },
     {
-      suite: new JoseLinkedDataSignature2020({
+      suite: new JsonWebSignature2020({
         LDKeyClass: JoseLinkedDataKeyClass2020,
-        linkedDataSigantureType: "JoseLinkedDataSignature2020",
-        linkedDataSignatureVerificationKeyType: "JoseVerificationKey2020",
+        linkedDataSigantureType: "JsonWebSignature2020",
+        linkedDataSignatureVerificationKeyType: "JwsVerificationKey2020",
         // will be inferred
         // alg: "...",
         key
@@ -38,11 +38,11 @@ const testJwk = async privateKeyJwk => {
   );
 
   const res = await jsigs.verify(signed, {
-    suite: new JoseLinkedDataSignature2020({
+    suite: new JsonWebSignature2020({
       LDKeyClass: JoseLinkedDataKeyClass2020,
-      linkedDataSigantureType: "JoseLinkedDataSignature2020",
-      linkedDataSignatureVerificationKeyType: "JoseVerificationKey2020",
-      alg: JoseLinkedDataSignature2020.inferAlg(signed),
+      linkedDataSigantureType: "JsonWebSignature2020",
+      linkedDataSignatureVerificationKeyType: "JwsVerificationKey2020",
+      alg: JsonWebSignature2020.inferAlg(signed),
       key
     }),
     purpose: new AssertionProofPurpose(),

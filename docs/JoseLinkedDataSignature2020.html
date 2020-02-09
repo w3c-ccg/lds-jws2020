@@ -1,1003 +1,523 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    
-    <meta charset="utf-8">
-    <title>JoseLinkedDataSignature2020 - JSON-LD Signature Suite for JOSE</title>
-    
-    <meta name="description" content="Linked Data Signatures for JOSE Developers." />
-    
-        <meta name="keywords" content="jsonld,jose,jws,jwk,jwks,jwa,linked-data,rdf,graph,signature" />
-        <meta name="keyword" content="jsonld,jose,jws,jwk,jwks,jwa,linked-data,rdf,graph,signature" />
-    
-    
-    
-    <meta property="og:title" content="Linked Data Signatures for JOSE"/>
-    <meta property="og:type" content="documentation"/>
-    <meta property="og:image" content="http://lds.jsld.org/Cyber-Security-FDA-Voices-1600x900.jpg"/>
-    <meta property="og:site_name" content="JSON-LD Signature Suite for JOSE"/>
-    <meta property="og:url" content="http://lds.jsld.org"/>
-    
+  <head>
+    <meta charset="utf-8" />
+    <title>JsonWebSignature2020 - JSON-LD Signature Suite for JOSE</title>
+
+    <meta
+      name="description"
+      content="Linked Data Signatures for JOSE Developers."
+    />
+
+    <meta
+      name="keywords"
+      content="jsonld,jose,jws,jwk,jwks,jwa,linked-data,rdf,graph,signature"
+    />
+    <meta
+      name="keyword"
+      content="jsonld,jose,jws,jwk,jwks,jwa,linked-data,rdf,graph,signature"
+    />
+
+    <meta property="og:title" content="Linked Data Signatures for JOSE" />
+    <meta property="og:type" content="documentation" />
+    <meta
+      property="og:image"
+      content="http://lds.jsld.org/Cyber-Security-FDA-Voices-1600x900.jpg"
+    />
+    <meta property="og:site_name" content="JSON-LD Signature Suite for JOSE" />
+    <meta property="og:url" content="http://lds.jsld.org" />
+
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
-    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css" />
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css" />
     <script src="scripts/nav.js" defer></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+    <label for="nav-trigger" class="navicon-button x">
+      <div class="navicon"></div>
+    </label>
+
+    <label for="nav-trigger" class="overlay"></label>
+
+    <nav>
+      <input type="text" id="nav-search" placeholder="Search" />
+
+      <h2><a href="index.html">Home</a></h2>
+      <h3>Classes</h3>
+      <ul>
+        <li>
+          <a href="JoseLinkedDataKeyClass2020.html"
+            >JoseLinkedDataKeyClass2020</a
+          >
+          <ul class="methods">
+            <li data-type="method">
+              <a href="JoseLinkedDataKeyClass2020.html#addEncodedPublicKey"
+                >addEncodedPublicKey</a
+              >
+            </li>
+            <li data-type="method">
+              <a href="JoseLinkedDataKeyClass2020.html#fingerprint"
+                >fingerprint</a
+              >
+            </li>
+            <li data-type="method">
+              <a href="JoseLinkedDataKeyClass2020.html#publicNode"
+                >publicNode</a
+              >
+            </li>
+            <li data-type="method">
+              <a href="JoseLinkedDataKeyClass2020.html#signer">signer</a>
+            </li>
+            <li data-type="method">
+              <a href="JoseLinkedDataKeyClass2020.html#verifier">verifier</a>
+            </li>
+            <li data-type="method">
+              <a href="JoseLinkedDataKeyClass2020.html#verifyFingerprint"
+                >verifyFingerprint</a
+              >
+            </li>
+            <li data-type="method">
+              <a
+                href="JoseLinkedDataKeyClass2020.html#.fingerprintFromPublicKey"
+                >fingerprintFromPublicKey</a
+              >
+            </li>
+            <li data-type="method">
+              <a href="JoseLinkedDataKeyClass2020.html#.generate">generate</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="JsonWebSignature2020.html">JsonWebSignature2020</a>
+          <ul class="methods">
+            <li data-type="method">
+              <a href="JsonWebSignature2020.html#sign">sign</a>
+            </li>
+            <li data-type="method">
+              <a href="JsonWebSignature2020.html#verifySignature"
+                >verifySignature</a
+              >
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <div id="main">
+      <h1 class="page-title">JsonWebSignature2020</h1>
+
+      <section>
+        <header>
+          <h2>
+            JsonWebSignature2020
+          </h2>
+        </header>
+
+        <article>
+          <div class="container-overview">
+            <h4 class="name" id="JsonWebSignature2020">
+              <span class="type-signature"></span>new JsonWebSignature2020<span
+                class="signature"
+                >(linkedDataSigantureType,
+                linkedDataSignatureVerificationKeyType, alg, LDKeyClass<span
+                  class="signature-attributes"
+                  >opt</span
+                >, signer<span class="signature-attributes">opt</span>,
+                proofSignatureKey<span class="signature-attributes">opt</span>,
+                date<span class="signature-attributes">opt</span>, key<span
+                  class="signature-attributes"
+                  >opt</span
+                >, useNativeCanonize<span class="signature-attributes">opt</span
+                >)</span
+              ><span class="type-signature"></span>
+            </h4>
 
-<input type="checkbox" id="nav-trigger" class="nav-trigger" />
-<label for="nav-trigger" class="navicon-button x">
-  <div class="navicon"></div>
-</label>
+            <dl class="details">
+              <dt class="tag-source">Source:</dt>
+              <dd class="tag-source">
+                <ul class="dummy">
+                  <li>
+                    <a href="JsonWebSignature2020.js.html"
+                      >JsonWebSignature2020.js</a
+                    >, <a href="JsonWebSignature2020.js.html#line33">line 33</a>
+                  </li>
+                </ul>
+              </dd>
+            </dl>
 
-<label for="nav-trigger" class="overlay"></label>
+            <h5>Parameters:</h5>
 
-<nav >
-    
-    <input type="text" id="nav-search" placeholder="Search" />
-    
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="JoseLinkedDataKeyClass2020.html">JoseLinkedDataKeyClass2020</a><ul class='methods'><li data-type='method'><a href="JoseLinkedDataKeyClass2020.html#addEncodedPublicKey">addEncodedPublicKey</a></li><li data-type='method'><a href="JoseLinkedDataKeyClass2020.html#fingerprint">fingerprint</a></li><li data-type='method'><a href="JoseLinkedDataKeyClass2020.html#publicNode">publicNode</a></li><li data-type='method'><a href="JoseLinkedDataKeyClass2020.html#signer">signer</a></li><li data-type='method'><a href="JoseLinkedDataKeyClass2020.html#verifier">verifier</a></li><li data-type='method'><a href="JoseLinkedDataKeyClass2020.html#verifyFingerprint">verifyFingerprint</a></li><li data-type='method'><a href="JoseLinkedDataKeyClass2020.html#.fingerprintFromPublicKey">fingerprintFromPublicKey</a></li><li data-type='method'><a href="JoseLinkedDataKeyClass2020.html#.generate">generate</a></li></ul></li><li><a href="JoseLinkedDataSignature2020.html">JoseLinkedDataSignature2020</a><ul class='methods'><li data-type='method'><a href="JoseLinkedDataSignature2020.html#sign">sign</a></li><li data-type='method'><a href="JoseLinkedDataSignature2020.html#verifySignature">verifySignature</a></li></ul></li></ul>
-</nav>
+            <table class="params">
+              <thead>
+                <tr>
+                  <th>Name</th>
 
-<div id="main">
-    
-    <h1 class="page-title">JoseLinkedDataSignature2020</h1>
-    
+                  <th>Type</th>
 
-    
+                  <th>Attributes</th>
 
+                  <th class="last">Description</th>
+                </tr>
+              </thead>
 
+              <tbody>
+                <tr>
+                  <td class="name"><code>linkedDataSigantureType</code></td>
 
+                  <td class="type">
+                    <span class="param-type">string</span>
+                  </td>
 
-<section>
+                  <td class="attributes"></td>
 
-<header>
-    
-        <h2>
-        JoseLinkedDataSignature2020
-        </h2>
-        
-    
-</header>
+                  <td class="description last">
+                    The name of the signature suite.
+                  </td>
+                </tr>
 
-<article>
-    
-        <div class="container-overview">
-        
-            
+                <tr>
+                  <td class="name">
+                    <code>linkedDataSignatureVerificationKeyType</code>
+                  </td>
 
-    
+                  <td class="type">
+                    <span class="param-type">string</span>
+                  </td>
 
-    <h4 class="name" id="JoseLinkedDataSignature2020"><span class="type-signature"></span>new JoseLinkedDataSignature2020<span class="signature">(linkedDataSigantureType, linkedDataSignatureVerificationKeyType, alg, LDKeyClass<span class="signature-attributes">opt</span>, signer<span class="signature-attributes">opt</span>, proofSignatureKey<span class="signature-attributes">opt</span>, date<span class="signature-attributes">opt</span>, key<span class="signature-attributes">opt</span>, useNativeCanonize<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+                  <td class="attributes"></td>
 
-    
+                  <td class="description last">
+                    The name verification key type for the signature suite.
+                  </td>
+                </tr>
 
+                <tr>
+                  <td class="name"><code>alg</code></td>
 
+                  <td class="type">
+                    <span class="param-type">string</span>
+                  </td>
 
+                  <td class="attributes"></td>
 
-<dl class="details">
+                  <td class="description last">
+                    JWS alg provided by subclass.
+                  </td>
+                </tr>
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="JoseLinkedDataSignature2020.js.html">JoseLinkedDataSignature2020.js</a>, <a href="JoseLinkedDataSignature2020.js.html#line33">line 33</a>
-    </li></ul></dd>
-    
+                <tr>
+                  <td class="name"><code>LDKeyClass</code></td>
 
-    
+                  <td class="type">
+                    <span class="param-type">LDKeyClass</span>
+                  </td>
 
-    
+                  <td class="attributes">&lt;optional><br /></td>
 
-    
+                  <td class="description last">
+                    provided by subclass or subclass overrides
+                    `getVerificationMethod`. This parameter is required for
+                    signing:
+                  </td>
+                </tr>
 
-    
+                <tr>
+                  <td class="name"><code>signer</code></td>
+
+                  <td class="type">
+                    <span class="param-type">function</span>
+                  </td>
 
-    
+                  <td class="attributes">&lt;optional><br /></td>
 
-    
+                  <td class="description last">an optional signer.</td>
+                </tr>
 
-    
+                <tr>
+                  <td class="name"><code>proofSignatureKey</code></td>
 
-    
+                  <td class="type">
+                    <span class="param-type">string</span>
+                  </td>
 
-    
+                  <td class="attributes">&lt;optional><br /></td>
 
-    
+                  <td class="description last">
+                    the property in the proof that will contain the signature.
+                  </td>
+                </tr>
 
-    
+                <tr>
+                  <td class="name"><code>date</code></td>
 
-    
+                  <td class="type">
+                    <span class="param-type">string</span>
+                    |
 
-    
+                    <span class="param-type">Date</span>
+                  </td>
 
-    
+                  <td class="attributes">&lt;optional><br /></td>
 
-    
-</dl>
+                  <td class="description last">
+                    signing date to use if not passed.
+                  </td>
+                </tr>
 
+                <tr>
+                  <td class="name"><code>key</code></td>
 
+                  <td class="type">
+                    <span class="param-type">LDKeyPair</span>
+                  </td>
 
+                  <td class="attributes">&lt;optional><br /></td>
 
+                  <td class="description last">
+                    an optional crypto-ld KeyPair.
+                  </td>
+                </tr>
 
+                <tr>
+                  <td class="name"><code>useNativeCanonize</code></td>
 
+                  <td class="type">
+                    <span class="param-type">boolean</span>
+                  </td>
 
+                  <td class="attributes">&lt;optional><br /></td>
 
+                  <td class="description last">
+                    true to use a native canonize algorithm.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
+          <h3 class="subsection-title">Methods</h3>
 
+          <h4 class="name" id="sign">
+            <span class="type-signature">(async) </span>sign<span
+              class="signature"
+              >(verifyData, proof)</span
+            ><span class="type-signature"> &rarr; {Promise.&lt;{object}>}</span>
+          </h4>
 
+          <dl class="details">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source">
+              <ul class="dummy">
+                <li>
+                  <a href="JsonWebSignature2020.js.html"
+                    >JsonWebSignature2020.js</a
+                  >, <a href="JsonWebSignature2020.js.html#line80">line 80</a>
+                </li>
+              </ul>
+            </dd>
+          </dl>
 
+          <h5>Parameters:</h5>
 
+          <table class="params">
+            <thead>
+              <tr>
+                <th>Name</th>
 
+                <th>Type</th>
 
-    <h5>Parameters:</h5>
-    
+                <th class="last">Description</th>
+              </tr>
+            </thead>
 
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-        <th>Attributes</th>
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>linkedDataSigantureType</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last">The name of the signature suite.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>linkedDataSignatureVerificationKeyType</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last">The name verification key type for the signature suite.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>alg</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last">JWS alg provided by subclass.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>LDKeyClass</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">LDKeyClass</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last">provided by subclass or subclass
-  overrides `getVerificationMethod`.
-
-
-This parameter is required for signing:</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>signer</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last">an optional signer.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>proofSignatureKey</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last">the property in the proof that will contain the signature.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>date</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-|
-
-<span class="param-type">Date</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last">signing date to use if not passed.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>key</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">LDKeyPair</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last">an optional crypto-ld KeyPair.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>useNativeCanonize</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">boolean</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last">true to use a native canonize
-  algorithm.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-        </div>
-    
-
-    
-
-    
-
-    
-    
-    
-
-     
-
-    
-
-    
-
-    
-        <h3 class="subsection-title">Methods</h3>
-
-        
-            
-
-    
-
-    <h4 class="name" id="sign"><span class="type-signature">(async) </span>sign<span class="signature">(verifyData, proof)</span><span class="type-signature"> &rarr; {Promise.&lt;{object}>}</span></h4>
-
-    
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="JoseLinkedDataSignature2020.js.html">JoseLinkedDataSignature2020.js</a>, <a href="JoseLinkedDataSignature2020.js.html#line80">line 80</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
+            <tbody>
+              <tr>
                 <td class="name"><code>verifyData</code></td>
-            
 
-            <td class="type">
-            
-                
-<span class="param-type">Uint8Array</span>
+                <td class="type">
+                  <span class="param-type">Uint8Array</span>
+                </td>
 
+                <td class="description last">.</td>
+              </tr>
 
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">.</td>
-        </tr>
-
-    
-
-        <tr>
-            
+              <tr>
                 <td class="name"><code>proof</code></td>
-            
 
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    the proof containing the signature value.
-</div>
-
-
-
-<dl class="param-type">
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Promise.&lt;{object}></span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="verifySignature"><span class="type-signature">(async) </span>verifySignature<span class="signature">(verifyData, verificationMethod, document, proof, purpose, documentLoader, expansionMap)</span><span class="type-signature"> &rarr; {Promise.&lt;{boolean}>}</span></h4>
-
-    
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="JoseLinkedDataSignature2020.js.html">JoseLinkedDataSignature2020.js</a>, <a href="JoseLinkedDataSignature2020.js.html#line102">line 102</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
+                <td class="type">
+                  <span class="param-type">object</span>
+                </td>
+
+                <td class="description last"></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h5>Returns:</h5>
+
+          <div class="param-desc">
+            the proof containing the signature value.
+          </div>
+
+          <dl class="param-type">
+            <dt>
+              Type
+            </dt>
+            <dd>
+              <span class="param-type">Promise.&lt;{object}></span>
+            </dd>
+          </dl>
+
+          <h4 class="name" id="verifySignature">
+            <span class="type-signature">(async) </span>verifySignature<span
+              class="signature"
+              >(verifyData, verificationMethod, document, proof, purpose,
+              documentLoader, expansionMap)</span
+            ><span class="type-signature">
+              &rarr; {Promise.&lt;{boolean}>}</span
+            >
+          </h4>
+
+          <dl class="details">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source">
+              <ul class="dummy">
+                <li>
+                  <a href="JsonWebSignature2020.js.html"
+                    >JsonWebSignature2020.js</a
+                  >, <a href="JsonWebSignature2020.js.html#line102">line 102</a>
+                </li>
+              </ul>
+            </dd>
+          </dl>
+
+          <h5>Parameters:</h5>
+
+          <table class="params">
+            <thead>
+              <tr>
+                <th>Name</th>
+
+                <th>Type</th>
+
+                <th class="last">Description</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
                 <td class="name"><code>verifyData</code></td>
-            
 
-            <td class="type">
-            
-                
-<span class="param-type">Uint8Array</span>
+                <td class="type">
+                  <span class="param-type">Uint8Array</span>
+                </td>
 
+                <td class="description last">.</td>
+              </tr>
 
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">.</td>
-        </tr>
-
-    
-
-        <tr>
-            
+              <tr>
                 <td class="name"><code>verificationMethod</code></td>
-            
 
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
+                <td class="type">
+                  <span class="param-type">object</span>
+                </td>
 
+                <td class="description last">.</td>
+              </tr>
 
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">.</td>
-        </tr>
-
-    
-
-        <tr>
-            
+              <tr>
                 <td class="name"><code>document</code></td>
-            
 
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
+                <td class="type">
+                  <span class="param-type">object</span>
+                </td>
 
+                <td class="description last">
+                  the document the proof applies to.
+                </td>
+              </tr>
 
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">the document the proof applies to.</td>
-        </tr>
-
-    
-
-        <tr>
-            
+              <tr>
                 <td class="name"><code>proof</code></td>
-            
 
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
+                <td class="type">
+                  <span class="param-type">object</span>
+                </td>
 
+                <td class="description last">the proof to be verified.</td>
+              </tr>
 
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">the proof to be verified.</td>
-        </tr>
-
-    
-
-        <tr>
-            
+              <tr>
                 <td class="name"><code>purpose</code></td>
-            
 
-            <td class="type">
-            
-                
-<span class="param-type">ProofPurpose</span>
+                <td class="type">
+                  <span class="param-type">ProofPurpose</span>
+                </td>
 
+                <td class="description last"></td>
+              </tr>
 
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-
-        <tr>
-            
+              <tr>
                 <td class="name"><code>documentLoader</code></td>
-            
 
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
+                <td class="type">
+                  <span class="param-type">function</span>
+                </td>
 
+                <td class="description last"></td>
+              </tr>
 
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-
-        <tr>
-            
+              <tr>
                 <td class="name"><code>expansionMap</code></td>
-            
 
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
+                <td class="type">
+                  <span class="param-type">function</span>
+                </td>
 
+                <td class="description last"></td>
+              </tr>
+            </tbody>
+          </table>
 
-            
-            </td>
+          <h5>Returns:</h5>
 
-            
+          <div class="param-desc">
+            Resolves with the verification result.
+          </div>
 
-            
+          <dl class="param-type">
+            <dt>
+              Type
+            </dt>
+            <dd>
+              <span class="param-type">Promise.&lt;{boolean}></span>
+            </dd>
+          </dl>
+        </article>
+      </section>
+    </div>
 
-            <td class="description last"></td>
-        </tr>
+    <br class="clear" />
 
-    
-    </tbody>
-</table>
+    <footer>
+      Documentation generated by
+      <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Tue Feb 04
+      2020 12:16:18 GMT-0600 (Central Standard Time) using the
+      <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    </footer>
 
+    <script>
+      prettyPrint();
+    </script>
+    <script src="scripts/polyfill.js"></script>
+    <script src="scripts/linenumber.js"></script>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    Resolves with the verification result.
-</div>
-
-
-
-<dl class="param-type">
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Promise.&lt;{boolean}></span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-        
-    
-
-    
-
-    
-</article>
-
-</section>
-
-
-
-
-    
-    
-</div>
-
-<br class="clear">
-
-<footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Tue Feb 04 2020 12:16:18 GMT-0600 (Central Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
-</footer>
-
-<script>prettyPrint();</script>
-<script src="scripts/polyfill.js"></script>
-<script src="scripts/linenumber.js"></script>
-
-<script src="scripts/search.js" defer></script>
-
-
-
-</body>
+    <script src="scripts/search.js" defer></script>
+  </body>
 </html>

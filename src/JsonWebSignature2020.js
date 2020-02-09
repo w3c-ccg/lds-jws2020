@@ -6,7 +6,7 @@ const base64url = require("base64url");
 
 const getRecomendedAlg = require("./getRecomendedAlg");
 
-class JoseLinkedDataSignature2020 extends LinkedDataSignature {
+class JsonWebSignature2020 extends LinkedDataSignature {
   static inferAlg(lds) {
     const { alg } = JSON.parse(base64url.decode(lds.proof.jws.split("..")[0]));
     return alg;
@@ -162,4 +162,4 @@ class JoseLinkedDataSignature2020 extends LinkedDataSignature {
   }
 }
 
-module.exports = JoseLinkedDataSignature2020;
+module.exports = JsonWebSignature2020;

@@ -1,6 +1,6 @@
 {
   "@context": [
-    "https://transmute-industries.github.io/lds-jose2020/contexts/lds-jose2020-v0.0.jsonld",
+    "https://transmute-industries.github.io/lds-jws2020/contexts/lds-jws2020-v0.0.jsonld",
     {
       "schema": "http://schema.org/",
       "name": "schema:name",
@@ -12,7 +12,7 @@
   "homepage": "https://manu.sporny.org/",
   "image": "https://manu.sporny.org/images/manu.png",
   "proof": {
-    "type": "JoseLinkedDataSignature2020",
+    "type": "JsonWebSignature2020",
     "created": "2020-01-18T21:09:34Z",
     "verificationMethod": "did:example:123#test-id",
     "proofPurpose": "assertionMethod",

@@ -4,12 +4,12 @@ const jsonld = require("jsonld");
 
 const contexts = {
   "https://w3id.org/did/v1": require("./contexts/did-v0.11.json"),
-  "https://transmute-industries.github.io/lds-jose2020/contexts/lds-jose2020-v0.0.jsonld": JSON.parse(
+  "https://transmute-industries.github.io/lds-jws2020/contexts/lds-jws2020-v0.0.jsonld": JSON.parse(
     fs
       .readFileSync(
         path.resolve(
           __dirname,
-          "../../../docs/contexts/lds-jose2020-v0.0.jsonld"
+          "../../../docs/contexts/lds-jws2020-v0.0.jsonld"
         )
       )
       .toString()
