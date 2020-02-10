@@ -1,7 +1,7 @@
 const didDocJwks = require("../../docs/example/didDocJwks.json");
 
 const {
-  JoseLinkedDataKeyClass2020,
+  JsonWebKeyLinkedDataKeyClass2020,
   JsonWebSignature2020
 } = require("../index");
 
@@ -11,7 +11,7 @@ const jsigs = require("jsonld-signatures");
 const { AssertionProofPurpose } = jsigs.purposes;
 
 const testJwk = async privateKeyJwk => {
-  const key = new JoseLinkedDataKeyClass2020({
+  const key = new JsonWebKeyLinkedDataKeyClass2020({
     id: "did:example:123#" + privateKeyJwk.kid,
     type: "JwsVerificationKey2020",
     controller: "did:example:123",
@@ -24,7 +24,7 @@ const testJwk = async privateKeyJwk => {
     { ...doc },
     {
       suite: new JsonWebSignature2020({
-        LDKeyClass: JoseLinkedDataKeyClass2020,
+        LDKeyClass: JsonWebKeyLinkedDataKeyClass2020,
         linkedDataSigantureType: "JsonWebSignature2020",
         linkedDataSignatureVerificationKeyType: "JwsVerificationKey2020",
         // will be inferred
@@ -39,7 +39,7 @@ const testJwk = async privateKeyJwk => {
 
   const res = await jsigs.verify(signed, {
     suite: new JsonWebSignature2020({
-      LDKeyClass: JoseLinkedDataKeyClass2020,
+      LDKeyClass: JsonWebKeyLinkedDataKeyClass2020,
       linkedDataSigantureType: "JsonWebSignature2020",
       linkedDataSignatureVerificationKeyType: "JwsVerificationKey2020",
       alg: JsonWebSignature2020.inferAlg(signed),

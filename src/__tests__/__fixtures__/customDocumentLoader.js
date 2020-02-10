@@ -3,7 +3,7 @@ const path = require("path");
 const jsonld = require("jsonld");
 
 const contexts = {
-  "https://w3id.org/did/v1": require("./contexts/did-v0.11.json"),
+  "https://www.w3.org/ns/did/v1": require("./contexts/did-core-v1.json"),
   "https://transmute-industries.github.io/lds-jws2020/contexts/lds-jws2020-v0.0.jsonld": JSON.parse(
     fs
       .readFileSync(

@@ -3,7 +3,7 @@ const base64url = require("base64url");
 
 const getRecomendedAlg = require("./getRecomendedAlg");
 
-class JoseLinkedDataKeyClass2020 {
+class JsonWebKeyLinkedDataKeyClass2020 {
   /**
    * @param {KeyPairOptions} options - The options to use.
    * @param {string} options.id - The key ID.
@@ -18,7 +18,12 @@ class JoseLinkedDataKeyClass2020 {
     this.controller = options.controller;
     this.privateKeyJwk = options.privateKeyJwk;
     this.publicKeyJwk = options.publicKeyJwk;
-    this.alg = options.alg;
+
+    if (options.alg) {
+      throw new Error(
+        "alg is no longer allowed. See the mapping table here: https://github.com/transmute-industries/lds-jws2020"
+      );
+    }
 
     if (this.publicKeyJwk === undefined) {
       this.publicKeyJwk = jose.JWK.asKey(this.privateKeyJwk).toJWK(false);
@@ -55,11 +60,11 @@ class JoseLinkedDataKeyClass2020 {
    * Generates a KeyPair with an optional deterministic seed.
    * @param {KeyPairOptions} [options={}] - The options to use.
    *
-   * @returns {Promise<JoseLinkedDataKeyClass2020>} Generates a key pair.
+   * @returns {Promise<JsonWebKeyLinkedDataKeyClass2020>} Generates a key pair.
    */
   static async generate(kty, crv, options = {}) {
     let key = jose.JWK.generateSync(kty, crv);
-    return new JoseLinkedDataKeyClass2020({
+    return new JsonWebKeyLinkedDataKeyClass2020({
       privateKeyJwk: key.toJWK(true),
       publicKeyJwk: key.toJWK(),
       ...options
@@ -137,7 +142,7 @@ class JoseLinkedDataKeyClass2020 {
   }
 
   static async from(options) {
-    return new JoseLinkedDataKeyClass2020(options);
+    return new JsonWebKeyLinkedDataKeyClass2020(options);
   }
 
   /**
@@ -168,7 +173,7 @@ class JoseLinkedDataKeyClass2020 {
  * Returns an object with an async sign function.
  * The sign function is bound to the KeyPair
  * and then returned by the KeyPair's signer method.
- * @param {JoseLinkedDataKeyClass2020} key - An JoseLinkedDataKeyClass2020.
+ * @param {JsonWebKeyLinkedDataKeyClass2020} key - An JsonWebKeyLinkedDataKeyClass2020.
  *
  * @returns {{sign: Function}} An object with an async function sign
  * using the private key passed in.
@@ -205,7 +210,7 @@ function joseSignerFactory(key) {
  * Returns an object with an async verify function.
  * The verify function is bound to the KeyPair
  * and then returned by the KeyPair's verifier method.
- * @param {JoseLinkedDataKeyClass2020} key - An JoseLinkedDataKeyClass2020.
+ * @param {JsonWebKeyLinkedDataKeyClass2020} key - An JsonWebKeyLinkedDataKeyClass2020.
  *
  * @returns {{verify: Function}} An async verifier specific
  * to the key passed in.
@@ -234,6 +239,12 @@ joseVerifierFactory = key => {
         throw new Error("Invalid JWS header.");
       }
 
+      if (header.alg !== alg) {
+        throw new Error(
+          `Invalid JWS header, expected ${header.alg} === ${alg}.`
+        );
+      }
+
       // confirm header matches all expectations
       if (
         !(
@@ -245,7 +256,9 @@ joseVerifierFactory = key => {
         ) &&
         Object.keys(header).length === 3
       ) {
-        throw new Error(`Invalid JWS header parameters for ${type}.`);
+        throw new Error(
+          `Invalid JWS header parameters ${JSON.stringify(header)} for ${type}.`
+        );
       }
 
       let verified = false;
@@ -274,4 +287,4 @@ joseVerifierFactory = key => {
   };
 };
 
-module.exports = JoseLinkedDataKeyClass2020;
+module.exports = JsonWebKeyLinkedDataKeyClass2020;

@@ -1,0 +1,22 @@
+[
+  {
+    "kty": "OKP",
+    "crvOrSize": "Ed25519",
+    "alg": "EdDSA"
+  },
+  {
+    "kty": "EC",
+    "crvOrSize": "secp256k1",
+    "alg": "ES256K"
+  },
+  {
+    "kty": "RSA",
+    "crvOrSize": 2048,
+    "alg": "PS256"
+  },
+  {
+    "kty": "EC",
+    "crvOrSize": "P-256",
+    "alg": "ES256"
+  }
+]

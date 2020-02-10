@@ -2,7 +2,7 @@ const documentLoader = require("./customDocumentLoader");
 
 const didDocJwks = require("../../../docs/example/didDocJwks.json");
 
-// let myLdKey = await JoseLinkedDataKeyClass2020.generate("OKP", "Ed25519", {
+// let myLdKey = await JsonWebKeyLinkedDataKeyClass2020.generate("OKP", "Ed25519", {
 //   id: "test-id",
 //   type: "test-type",
 //   controller: "test-controller"
@@ -11,7 +11,6 @@ const myLdKey = {
   id: "test-id",
   type: "test-type",
   controller: "test-controller",
-  alg: "EdDSA",
   privateKeyJwk: {
     crv: "Ed25519",
     x: "FXEu1TAoxz7upMtTKCUiX5EH2mYCuUEHf7DLuBw9-fo",
@@ -44,7 +43,7 @@ const doc = {
 
 const authenticateMeActionDoc = {
   "@context": [
-    "https://w3id.org/did/v1",
+    "https://www.w3.org/ns/did/v1",
     {
       schema: "http://schema.org/",
       action: "schema:action"
@@ -64,7 +63,7 @@ const didKeypair = {
 };
 
 const didKeyDoc = {
-  "@context": "https://w3id.org/did/v1",
+  "@context": "https://www.w3.org/ns/did/v1",
   id: "did:key:z6MkfXT3gnptvkda3fmLVKHdJrm8gUnmx3faSd1iVeCAxYtP",
   publicKey: [
     {
@@ -94,7 +93,7 @@ const didKeyDoc = {
 };
 
 const didKeyDoc2 = {
-  "@context": "https://w3id.org/did/v1",
+  "@context": "https://www.w3.org/ns/did/v1",
   id: "did:key:z6MkfXT3gnptvkda3fmLVKHdJrm8gUnmx3faSd1iVeCAxYtP",
   publicKey: [
     {
