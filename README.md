@@ -57,8 +57,8 @@ See the [Linked Data Signature Suite Vocabulary](https://lds.jsld.org/contexts/)
 
 #### Example Data
 
-- [example keystore](./example/didDocJwks.json).
-- [example did document](./example/didDoc.json)
+- [example keystore](https://lds.jsld.org/example/didDocJwks.json).
+- [example did document](https://lds.jsld.org/example/didDoc.json)
 
 ## Credits and Support
 
