@@ -29,7 +29,7 @@
       // Open Graph options (mostly for Facebook and other sites to easily extract meta information)
       "title": "Linked Data Signatures for JWS", // Title of the website
       "type": "documentation", // Type of the website
-      "image": "http://lds.jsld.org/Cyber-Security-FDA-Voices-1600x900.jpg", // Main image/logo
+      "image": "http://lds.jsld.org/image.jpg", // Main image/logo
       "site_name": "JSON-LD Signature Suite for JWS", // Site name
       "url": "http://lds.jsld.org" // Main canonical URL for the main page of the site
     },
