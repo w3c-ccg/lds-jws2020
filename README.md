@@ -1,5 +1,7 @@
 # Linked Data Signatures for JWS
 
+![Integration Tests](https://github.com/transmute-industries/lds-jws2020/workflows/Integration%20Tests/badge.svg)
+
 [View On Github](https://github.com/transmute-industries/lds-jws2020)
 
 - [View Linked Data Signature Suite Vocabulary](https://lds.jsld.org/contexts/)
