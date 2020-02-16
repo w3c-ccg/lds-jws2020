@@ -14,6 +14,14 @@ const supportedKeyTypes = [
   {
     kty: "EC",
     crvOrSize: "P-256"
+  },
+  {
+    kty: "EC",
+    crvOrSize: "P-384"
+  },
+  {
+    kty: "EC",
+    crvOrSize: "P-521"
   }
 ];
 

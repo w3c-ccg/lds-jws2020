@@ -18,5 +18,15 @@
     "kty": "EC",
     "crvOrSize": "P-256",
     "alg": "ES256"
+  },
+  {
+    "kty": "EC",
+    "crvOrSize": "P-384",
+    "alg": "ES384"
+  },
+  {
+    "kty": "EC",
+    "crvOrSize": "P-521",
+    "alg": "ES512"
   }
 ]
