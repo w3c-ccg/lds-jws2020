@@ -1,7 +1,9 @@
 const mapper = {
   "OKP Ed25519": "EdDSA",
   "EC secp256k1": "ES256K",
-  "EC P-256": "ES256"
+  "EC P-256": "ES256",
+  "EC P-384": "ES384",
+  "EC P-521": "ES512"
 };
 
 const getRecomendedAlg = ({ kty, crv }) => {
