@@ -1,0 +1,8 @@
+coverage
+docs
+.github
+jest.config.js
+jsdoc.json
+
+**/__tests__/*
+**/**.spec.js
