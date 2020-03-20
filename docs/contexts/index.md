@@ -13,8 +13,8 @@ Per [ld-signatures](https://w3c-dvcg.github.io/ld-signatures/#signature-suites),
   "id": "https://lds.jsld.org/contexts/#JsonWebSignature2020",
   "type": "SignatureSuite",
   "canonicalizationAlgorithm": "https://w3id.org/security#URDNA2015",
-  "digestAlgorithm": "https://www.ietf.org/assignments/jwa-parameters#SHA256",
-  "signatureAlgorithm": "https://tools.ietf.org/html/rfc7518"
+  "digestAlgorithm": "https://tools.ietf.org/html/rfc4634#section-4.2.2",
+  "signatureAlgorithm": "https://www.iana.org/assignments/jose/jose.xhtml#web-signature-encryption-algorithms"
 }
 ```
 
