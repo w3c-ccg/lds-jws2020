@@ -2,6 +2,8 @@ const documentLoader = require("./customDocumentLoader");
 
 const didDocJwks = require("../../../docs/example/didDocJwks.json");
 
+
+const credentials = require('./credentials');
 // let myLdKey = await JsonWebKeyLinkedDataKeyClass2020.generate("OKP", "Ed25519", {
 //   id: "test-id",
 //   type: "test-type",
@@ -144,6 +146,7 @@ const credential = {
 
 module.exports = {
   doc,
+  credentials,
   myLdKey,
   didKeyDoc,
   didKeyDoc2,
