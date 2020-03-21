@@ -20,8 +20,54 @@ If you will only ever need to support Ed25519 or only Secp256k1, you should cons
 
 - [EcdsaSecp256k1Signature2019](https://github.com/decentralized-identity/lds-ecdsa-secp256k1-2019.js)
 
+## Usage
 
-## Getting Started
+
+Install:
+
+```
+npm i lds-jws2020 --save
+```
+
+Use with vc-js:
+
+```js
+const key = new JsonWebKeyLinkedDataKeyClass2020({
+  id: `did:example:123#_Qq0UL2Fq651Q0Fjd6TvnYE-faHiOpRlPVQcY_-tA4A`,
+  type: "JwsVerificationKey2020",
+  controller: 'did:example:123',
+  privateKeyJwk: {
+    "crv": "Ed25519",
+    "x": "VCpo2LMLhn6iWku8MKvSLg2ZAoC-nlOyPVQaO3FxVeQ",
+    "d": "tP7VWE16yMQWUO2G250yvoevfbfxY25GjHglTP3ZOyU",
+    "kty": "OKP",
+    "kid": "_Qq0UL2Fq651Q0Fjd6TvnYE-faHiOpRlPVQcY_-tA4A"
+  }
+});
+
+const suite = new JsonWebSignature2020({
+  LDKeyClass: JsonWebKeyLinkedDataKeyClass2020,
+  linkedDataSigantureType: "JsonWebSignature2020",
+  linkedDataSignatureVerificationKeyType: "JwsVerificationKey2020",
+  key
+});
+
+const vc = await vc.issue({
+  credential: { ...credential },
+  compactProof: false,
+  suite
+});
+
+const result = await vc.verify({
+  credential: vc,
+  compactProof: false,
+  documentLoader: documentLoader,
+  purpose: new AssertionProofPurpose(),
+  suite
+});
+```
+
+## Developer Getting Started
 
 ```
 npm i
