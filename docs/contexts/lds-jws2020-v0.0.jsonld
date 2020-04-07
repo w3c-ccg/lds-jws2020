@@ -3,7 +3,7 @@
     "@version": 1.1,
     "id": "@id",
     "type": "@type",
-    "ldssk": "https://lds.jsld.org/contexts/#",
+    "ldssk": "https://w3c-ccg.github.io/lds-jws2020/contexts/#",
     "JsonWebSignature2020": "ldssk:JsonWebSignature2020",
     "JwsVerificationKey2020": "ldssk:JwsVerificationKey2020",
     "publicKeyJwk": "ldssk:publicKeyJwk"

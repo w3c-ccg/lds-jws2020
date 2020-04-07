@@ -4,8 +4,8 @@
 
 [View On Github](https://github.com/transmute-industries/lds-jws2020)
 
-- [View Linked Data Signature Suite Vocabulary](https://lds.jsld.org/contexts/)
-- [View Linked Data Signature Suite Context](https://lds.jsld.org/contexts/lds-jws2020-v0.0.jsonld)
+- [View Linked Data Signature Suite Vocabulary](https://w3c-ccg.github.io/lds-jws2020/contexts/)
+- [View Linked Data Signature Suite Context](https://w3c-ccg.github.io/lds-jws2020/contexts/lds-jws2020-v0.0.jsonld)
 
 
 ## Security Considerations
@@ -97,7 +97,7 @@ Per [ld-signatures](https://w3c-dvcg.github.io/ld-signatures/#signature-suites),
 
 ```json
 {
-  "id": "https://lds.jsld.org/contexts/#JsonWebSignature2020",
+  "id": "https://w3c-ccg.github.io/lds-jws2020/contexts/#JsonWebSignature2020",
   "type": "SignatureSuite",
   "canonicalizationAlgorithm": "https://w3id.org/security#URDNA2015",
   "digestAlgorithm": "https://tools.ietf.org/html/rfc4634#section-4.2.2",
@@ -105,12 +105,12 @@ Per [ld-signatures](https://w3c-dvcg.github.io/ld-signatures/#signature-suites),
 }
 ```
 
-See the [Linked Data Signature Suite Vocabulary](https://lds.jsld.org/contexts/).
+See the [Linked Data Signature Suite Vocabulary](https://w3c-ccg.github.io/lds-jws2020/contexts/).
 
 #### Example Data
 
-- [example keystore](https://lds.jsld.org/example/didDocJwks.json).
-- [example did document](https://lds.jsld.org/example/didDoc.json)
+- [example keystore](https://w3c-ccg.github.io/lds-jws2020/example/didDocJwks.json).
+- [example did document](https://w3c-ccg.github.io/lds-jws2020/example/didDoc.json)
 
 ## Credits and Support
 

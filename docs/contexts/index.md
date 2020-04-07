@@ -2,7 +2,7 @@
 
 > JSON-LD 1.1 is being formally specified in the W3C JSON-LD Working Group. To participate in this work, please join the W3C and then [join the Working Group](https://www.w3.org/2018/json-ld-wg/).
 
-- [Latest JSON-LD Context](https://lds.jsld.org/contexts/lds-jws2020-v0.0.jsonld)
+- [Latest JSON-LD Context](https://w3c-ccg.github.io/lds-jws2020/contexts/lds-jws2020-v0.0.jsonld)
 
 ### Suite Details
 
@@ -10,7 +10,7 @@ Per [ld-signatures](https://w3c-dvcg.github.io/ld-signatures/#signature-suites),
 
 ```json
 {
-  "id": "https://lds.jsld.org/contexts/#JsonWebSignature2020",
+  "id": "https://w3c-ccg.github.io/lds-jws2020/contexts/#JsonWebSignature2020",
   "type": "SignatureSuite",
   "canonicalizationAlgorithm": "https://w3id.org/security#URDNA2015",
   "digestAlgorithm": "https://tools.ietf.org/html/rfc4634#section-4.2.2",
@@ -28,7 +28,7 @@ A public key in JWK format. A JSON Web Key (JWK) is a JavaScript Object Notation
 
 ```json
 {
-  "@context": "https://lds.jsld.org/contexts/lds-jws2020-v0.0.jsonld",
+  "@context": "https://w3c-ccg.github.io/lds-jws2020/contexts/lds-jws2020-v0.0.jsonld",
   "id": "did:example:123#JUvpllMEYUZ2joO59UNui_XYDqxVqiFLLAJ8klWuPBw",
   "type": "JwsVerificationKey2020",
   "publicKeyJwk": {
@@ -50,7 +50,7 @@ The verification key type for `JsonWebSignature2020`. The key must have a proper
 ```json
 [
   {
-    "@context": "https://lds.jsld.org/contexts/lds-jws2020-v0.0.jsonld",
+    "@context": "https://w3c-ccg.github.io/lds-jws2020/contexts/lds-jws2020-v0.0.jsonld",
     "id": "did:example:123#JUvpllMEYUZ2joO59UNui_XYDqxVqiFLLAJ8klWuPBw",
     "type": "JwsVerificationKey2020",
     "publicKeyJwk": {

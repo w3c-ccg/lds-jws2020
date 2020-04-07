@@ -4,7 +4,7 @@ const jsonld = require("jsonld");
 
 const contexts = {
   "https://www.w3.org/ns/did/v1": require("./contexts/did-core-v1.json"),
-  "https://lds.jsld.org/contexts/lds-jws2020-v0.0.jsonld": JSON.parse(
+  "https://w3c-ccg.github.io/lds-jws2020/contexts/lds-jws2020-v0.0.jsonld": JSON.parse(
     fs
       .readFileSync(
         path.resolve(
