@@ -11,12 +11,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/transmute-industries/lds-jws2020.git"
+    "url": "git+https://github.com/w3c-ccg/lds-jws2020.git"
   },
   "author": "",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/transmute-industries/lds-jws2020/issues"
+    "url": "https://github.com/w3c-ccg/lds-jws2020/issues"
   },
   "dependencies": {
     "@panva/jose": "^1.9.2",

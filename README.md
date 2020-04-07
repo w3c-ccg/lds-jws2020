@@ -1,8 +1,8 @@
 # Linked Data Signatures for JWS
 
-![Integration Tests](https://github.com/transmute-industries/lds-jws2020/workflows/Integration%20Tests/badge.svg) [![codecov](https://codecov.io/gh/transmute-industries/lds-jws2020/branch/master/graph/badge.svg)](https://codecov.io/gh/transmute-industries/lds-jws2020)
+![Integration Tests](https://github.com/w3c-ccg/lds-jws2020/workflows/Integration%20Tests/badge.svg) [![codecov](https://codecov.io/gh/transmute-industries/lds-jws2020/branch/master/graph/badge.svg)](https://codecov.io/gh/transmute-industries/lds-jws2020)
 
-[View On Github](https://github.com/transmute-industries/lds-jws2020)
+[View On Github](https://github.com/w3c-ccg/lds-jws2020)
 
 - [View Linked Data Signature Suite Vocabulary](https://w3c-ccg.github.io/lds-jws2020/contexts/)
 - [View Linked Data Signature Suite Context](https://w3c-ccg.github.io/lds-jws2020/contexts/lds-jws2020-v0.0.jsonld)

@@ -1,4 +1,4 @@
-#### [View on GitHub](https://github.com/transmute-industries/lds-jws2020)
+#### [View on GitHub](https://github.com/w3c-ccg/lds-jws2020)
 
 > JSON-LD 1.1 is being formally specified in the W3C JSON-LD Working Group. To participate in this work, please join the W3C and then [join the Working Group](https://www.w3.org/2018/json-ld-wg/).
 
