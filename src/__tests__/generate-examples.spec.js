@@ -33,6 +33,41 @@ const addKey = async ({ kty, crvOrSize }) => {
   let key = await JsonWebKeyLinkedDataKeyClass2020.generate(kty, crvOrSize, {
     // when ommited, will be generated from controller and fingerprint.
     // id: "test-id",
+    type: "JsonWebKey2020",
+    controller: "did:example:123"
+  });
+
+  let suite = new JsonWebSignature2020({
+    LDKeyClass: JsonWebKeyLinkedDataKeyClass2020,
+    linkedDataSigantureType: "JsonWebSignature2020",
+    linkedDataSignatureVerificationKeyType: "JsonWebKey2020",
+    key
+  });
+
+  await jsigs.sign(didDoc, {
+    compactProof: false,
+    documentLoader: documentLoader,
+    purpose: new AssertionProofPurpose(),
+    suite
+  });
+
+  jwks.add(jose.JWK.asKey(key.privateKeyJwk));
+
+  const publicKey = { ...key };
+  delete publicKey.privateKeyJwk;
+  delete publicKey.alg;
+  didDoc.publicKey.push(publicKey);
+  didDoc.authentication.push(publicKey.id);
+  didDoc.assertionMethod.push(publicKey.id);
+  didDoc.capabilityDelegation.push(publicKey.id);
+  didDoc.capabilityInvocation.push(publicKey.id);
+  return key;
+};
+
+const addKeyDeprecated = async ({ kty, crvOrSize }) => {
+  let key = await JsonWebKeyLinkedDataKeyClass2020.generate(kty, crvOrSize, {
+    // when ommited, will be generated from controller and fingerprint.
+    // id: "test-id",
     type: "JwsVerificationKey2020",
     controller: "did:example:123"
   });
@@ -69,6 +104,19 @@ describe.skip("generate example did document", () => {
     await Promise.all(supportedKeyTypes.map(addKey));
     fs.writeFileSync(
       path.resolve(__dirname, "../../docs/example/didDoc.json"),
+      JSON.stringify(didDoc, null, 2)
+    );
+    fs.writeFileSync(
+      path.resolve(__dirname, "../../docs/example/didDocJwks.json"),
+      JSON.stringify(jwks.toJWKS(true), null, 2)
+    );
+    ddo = didDoc;
+  });
+
+  it("should add all supported, but deprecated key types", async () => {
+    await Promise.all(supportedKeyTypes.map(addKeyDeprecated));
+    fs.writeFileSync(
+      path.resolve(__dirname, "../../docs/example/didDocDeprecated.json"),
       JSON.stringify(didDoc, null, 2)
     );
     fs.writeFileSync(

@@ -34,7 +34,7 @@ Use with vc-js:
 ```js
 const key = new JsonWebKeyLinkedDataKeyClass2020({
   id: `did:example:123#_Qq0UL2Fq651Q0Fjd6TvnYE-faHiOpRlPVQcY_-tA4A`,
-  type: "JwsVerificationKey2020",
+  type: "JsonWebKey2020",
   controller: 'did:example:123',
   privateKeyJwk: {
     "crv": "Ed25519",
@@ -48,7 +48,7 @@ const key = new JsonWebKeyLinkedDataKeyClass2020({
 const suite = new JsonWebSignature2020({
   LDKeyClass: JsonWebKeyLinkedDataKeyClass2020,
   linkedDataSigantureType: "JsonWebSignature2020",
-  linkedDataSignatureVerificationKeyType: "JwsVerificationKey2020",
+  linkedDataSignatureVerificationKeyType: "JsonWebKey2020",
   key
 });
 
@@ -111,6 +111,24 @@ See the [Linked Data Signature Suite Vocabulary](https://w3c-ccg.github.io/lds-j
 
 - [example keystore](https://w3c-ccg.github.io/lds-jws2020/example/didDocJwks.json).
 - [example did document](https://w3c-ccg.github.io/lds-jws2020/example/didDoc.json)
+
+#### Deprecated Examples
+
+This is an example of a JwsVerificationKey2020 which remains defined in the context for backwards-compatibility, but shouldn't be used by new implementations.
+
+```js
+const key = new JsonWebKeyLinkedDataKeyClass2020({
+  id: `did:example:123#_Qq0UL2Fq651Q0Fjd6TvnYE-faHiOpRlPVQcY_-tA4A`,
+  type: "JwsVerificationKey2020",
+  controller: 'did:example:123',
+  privateKeyJwk: {
+    "crv": "Ed25519",
+    "x": "VCpo2LMLhn6iWku8MKvSLg2ZAoC-nlOyPVQaO3FxVeQ",
+    "d": "tP7VWE16yMQWUO2G250yvoevfbfxY25GjHglTP3ZOyU",
+    "kty": "OKP",
+    "kid": "_Qq0UL2Fq651Q0Fjd6TvnYE-faHiOpRlPVQcY_-tA4A"
+  }
+});
 
 ## Credits and Support
 

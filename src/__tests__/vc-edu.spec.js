@@ -14,6 +14,8 @@ const { AssertionProofPurpose } = jsigs.purposes;
 describe("credential integration tests", () => {
   let suite;
   let key;
+  let keyDeprecated;
+  let suiteDeprecated;
 
   beforeAll(async () => {
     const privateKeyJwk = didDocJwks.keys[1];
@@ -21,7 +23,7 @@ describe("credential integration tests", () => {
 
     key = new JsonWebKeyLinkedDataKeyClass2020({
       id: `${did}#${privateKeyJwk.kid}`,
-      type: "JwsVerificationKey2020",
+      type: "JsonWebKey2020",
       controller: did,
       privateKeyJwk
     });
@@ -29,8 +31,22 @@ describe("credential integration tests", () => {
     suite = new JsonWebSignature2020({
       LDKeyClass: JsonWebKeyLinkedDataKeyClass2020,
       linkedDataSigantureType: "JsonWebSignature2020",
-      linkedDataSignatureVerificationKeyType: "JwsVerificationKey2020",
+      linkedDataSignatureVerificationKeyType: "JsonWebKey2020",
       key
+    });
+
+    keyDeprecated = new JsonWebKeyLinkedDataKeyClass2020({
+      id: `${did}#${privateKeyJwk.kid}`,
+      type: "JwsVerificationKey2020",
+      controller: did,
+      privateKeyJwk
+    });
+
+    suiteDeprecated = new JsonWebSignature2020({
+      LDKeyClass: JsonWebKeyLinkedDataKeyClass2020,
+      linkedDataSigantureType: "JsonWebSignature2020",
+      linkedDataSignatureVerificationKeyType: "JwsVerificationKey2020",
+      key: keyDeprecated
     });
   });
 
@@ -41,7 +57,7 @@ describe("credential integration tests", () => {
         compactProof: false,
         suite
       });
-      // console.log(JSON.stringify(signedVC, null, 2))
+
       expect(signedVC.proof).toBeDefined();
       const result = await vc.verify({
         credential: signedVC,
@@ -52,5 +68,23 @@ describe("credential integration tests", () => {
       });
       expect(result.verified).toBeTruthy();
     });
+  });
+
+  it("should work as valid signature suite for issuing and verifying a credential with deprecated KeyType", async () => {
+    const signedVC = await vc.issue({
+      credential: { ...credentials.edu.vcBindingModel },
+      compactProof: false,
+      suite: suiteDeprecated
+    });
+    
+    expect(signedVC.proof).toBeDefined();
+    const result = await vc.verify({
+      credential: signedVC,
+      compactProof: false,
+      documentLoader: documentLoader,
+      purpose: new AssertionProofPurpose(),
+      suite: suiteDeprecated
+    });
+    expect(result.verified).toBeTruthy();
   });
 });
