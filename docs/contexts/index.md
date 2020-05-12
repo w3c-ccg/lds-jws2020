@@ -30,7 +30,7 @@ A public key in JWK format. A JSON Web Key (JWK) is a JavaScript Object Notation
 {
   "@context": "https://w3c-ccg.github.io/lds-jws2020/contexts/lds-jws2020-v0.0.jsonld",
   "id": "did:example:123#JUvpllMEYUZ2joO59UNui_XYDqxVqiFLLAJ8klWuPBw",
-  "type": "JwsVerificationKey2020",
+  "type": "JsonWebKey2020",
   "publicKeyJwk": {
     "kid": "JUvpllMEYUZ2joO59UNui_XYDqxVqiFLLAJ8klWuPBw",
     "kty": "OKP",
@@ -39,6 +39,29 @@ A public key in JWK format. A JSON Web Key (JWK) is a JavaScript Object Notation
     "x": "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo"
   }
 }
+```
+
+<h4 id="JsonWebKey2020"><a href="#JsonWebKey2020">JsonWebKey2020</a></h4>
+
+The verification key type for `JsonWebSignature2020`. The key must have a property `publicKeyJwk` and its value must be a valid JWK.
+
+#### Example:
+
+```json
+[
+  {
+    "@context": "https://w3c-ccg.github.io/lds-jws2020/contexts/lds-jws2020-v0.0.jsonld",
+    "id": "did:example:123#JUvpllMEYUZ2joO59UNui_XYDqxVqiFLLAJ8klWuPBw",
+    "type": "JsonWebKey2020",
+    "publicKeyJwk": {
+      "kid": "JUvpllMEYUZ2joO59UNui_XYDqxVqiFLLAJ8klWuPBw",
+      "kty": "OKP",
+      "crv": "Ed25519",
+      "d": "nWGxne_9WmC6hEr0kuwsxERJxWl7MmkZcDusAxyuf2A",
+      "x": "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo"
+    }
+  }
+]
 ```
 
 <h4 id="JwsVerificationKey2020"><a href="#JwsVerificationKey2020">JwsVerificationKey2020</a></h4>
@@ -63,6 +86,8 @@ The verification key type for `JsonWebSignature2020`. The key must have a proper
   }
 ]
 ```
+
+Note, `JwsVerificationKey2020` type, remains compatible within the JSON-LD context, but should not be used by new implementations. Instead implementers should use `JsonWebKey2020` defined above.
 
 <h4 id="JsonWebSignature2020"><a href="#JsonWebSignature2020">JsonWebSignature2020</a></h4>
 

@@ -4,7 +4,7 @@
   "publicKey": [
     {
       "id": "did:example:123#_Qq0UL2Fq651Q0Fjd6TvnYE-faHiOpRlPVQcY_-tA4A",
-      "type": "JwsVerificationKey2020",
+      "type": "JsonWebKey2020",
       "controller": "did:example:123",
       "publicKeyJwk": {
         "crv": "Ed25519",
@@ -15,7 +15,7 @@
     },
     {
       "id": "did:example:123#4SZ-StXrp5Yd4_4rxHVTCYTHyt4zyPfN1fIuYsm6k3A",
-      "type": "JwsVerificationKey2020",
+      "type": "JsonWebKey2020",
       "controller": "did:example:123",
       "publicKeyJwk": {
         "crv": "secp256k1",
@@ -27,7 +27,7 @@
     },
     {
       "id": "did:example:123#n4cQ-I_WkHMcwXBJa7IHkYu8CMfdNcZKnKsOrnHLpFs",
-      "type": "JwsVerificationKey2020",
+      "type": "JsonWebKey2020",
       "controller": "did:example:123",
       "publicKeyJwk": {
         "e": "AQAB",
@@ -38,7 +38,7 @@
     },
     {
       "id": "did:example:123#_TKzHv2jFIyvdTGF1Dsgwngfdg3SH6TpDv0Ta1aOEkw",
-      "type": "JwsVerificationKey2020",
+      "type": "JsonWebKey2020",
       "controller": "did:example:123",
       "publicKeyJwk": {
         "crv": "P-256",
@@ -50,7 +50,7 @@
     },
     {
       "id": "did:example:123#8wgRfY3sWmzoeAL-78-oALNvNj67ZlQxd1ss_NX1hZY",
-      "type": "JwsVerificationKey2020",
+      "type": "JsonWebKey2020",
       "controller": "did:example:123",
       "publicKeyJwk": {
         "crv": "P-384",
@@ -62,7 +62,7 @@
     },
     {
       "id": "did:example:123#NjQ6Y_ZMj6IUK_XkgCDwtKHlNTUTVjEYOWZtxhp1n-E",
-      "type": "JwsVerificationKey2020",
+      "type": "JsonWebKey2020",
       "controller": "did:example:123",
       "publicKeyJwk": {
         "crv": "P-521",
