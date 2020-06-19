@@ -124,6 +124,18 @@ export class JsonWebKey {
     publicKeyNode.publicKeyJwk = this.publicKeyJwk;
     return publicKeyNode;
   }
+  publicNode({ controller = this.controller }: any = {}) {
+    const publicNode: any = {
+      id: this.id,
+      type: this.type,
+    };
+    if (controller) {
+      publicNode.controller = controller;
+    }
+
+    this.addEncodedPublicKey(publicNode); // Subclass-specific
+    return publicNode;
+  }
   fingerprint() {
     const { publicKeyJwk } = this;
     return JsonWebKey.fingerprintFromPublicKey({ publicKeyJwk });

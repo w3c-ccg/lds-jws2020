@@ -1,7 +1,7 @@
 import * as JsonWebKey2020 from './JsonWebKey2020';
 
 const mapper: any = {
-  [2020]: JsonWebKey2020,
+  2020: JsonWebKey2020,
 };
 
 const checkMapper = (type: any, year: any, kty: any, crv: any) => {
