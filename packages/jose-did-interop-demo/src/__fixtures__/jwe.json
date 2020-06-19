@@ -1,0 +1,44 @@
+{
+  "protected": "eyJlbmMiOiJBMTI4Q0JDLUhTMjU2In0",
+  "recipients": [
+    {
+      "header": {
+        "alg": "ECDH-ES+A256KW",
+        "epk": {
+          "kty": "EC",
+          "crv": "P-384",
+          "x": "Com5-QGtzotMIY75HV8Te1jaT8tA7oo1jJiXutYFCDEEpPAOmFC4_CXzbecm3u_R",
+          "y": "63S18T5JZ48ZUmMQvJm_bA40VnuyRRpXtK-HbcZNERWksmadwi9PtZBSboCAtbDB"
+        }
+      },
+      "encrypted_key": "3Gz9D-ZCpobtU1kpWlK24j0emTe8VFux3FlhucEiaBXSXGjyydDoGA"
+    },
+    {
+      "header": {
+        "alg": "ECDH-ES+A256KW",
+        "epk": {
+          "kty": "EC",
+          "crv": "P-384",
+          "x": "UoXqVY_SjmBixJemeOiy4QU7zRoe7fCQ-_10GEw7v6gaViw-g2gQ00x5Q8wiMj8a",
+          "y": "1-2F3VCTGMtMeWbaxSu5nkaa3wBltWqSzczBGZnAA6j8ojeP1ujIIdvV0BGlpeio"
+        }
+      },
+      "encrypted_key": "dp9ywiGO-ZhoyfrH5SEJU3duvu60xDv_rmK6zbPZ8KwHk9TYN1ot1Q"
+    },
+    {
+      "header": {
+        "alg": "ECDH-ES+A256KW",
+        "epk": {
+          "kty": "EC",
+          "crv": "P-384",
+          "x": "UHFeB0usmoLObj9KyXwYdB5bieEnj7Ry2XSArB8kitmnJ8orkJxJ4k8ZyUiwouTY",
+          "y": "-tNL5ULbtTHBIWozERbXzgISe4JLZ0CCE_xhETUsniz1Nl2yfntrmNJroHHf1mgn"
+        }
+      },
+      "encrypted_key": "rKUUrBCLPv31tYpJbJwfshU-IodeqcpSqXyQDOgr4DC6NK48aPIm5g"
+    }
+  ],
+  "iv": "9yic6nusaOi_bjf4ZR-DHw",
+  "ciphertext": "IlKAaxdhYczHjoiyLYLSkcuDtzf-hsGVDWJs6rCwNSM",
+  "tag": "sXK-b6Zmh59KqwK-MB8VRg"
+}

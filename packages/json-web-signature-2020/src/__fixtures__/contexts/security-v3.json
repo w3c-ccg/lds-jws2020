@@ -1,0 +1,25 @@
+{
+  "@context": [
+    {
+      "@version": 1.1,
+      "@protected": true
+    },
+    "https://w3id.org/security/v2",
+    {
+      "JsonWebSignature2020": {
+        "@id": "sec:JsonWebSignature2020"
+      },
+      "JsonWebKey2020": {
+        "@id": "sec:JsonWebKey2020"
+      },
+      "publicKeyJwk": {
+        "@id": "sec:publicKeyJwk",
+        "@type": "@json"
+      },
+      "privateKeyJwk": {
+        "@id": "sec:privateKeyJwk",
+        "@type": "@json"
+      }
+    }
+  ]
+}
