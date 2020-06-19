@@ -1,5 +1,7 @@
 # @transmute/json-web-key-ld
 
+![json-web-key-2020](https://github.com/w3c-ccg/lds-jws2020/workflows/json-web-key-2020/badge.svg)
+
 ## JsonWebKey2020 Recomended Algorithms
 
 | kty | crvOrSize | signature | keyAgreement | encryption     |

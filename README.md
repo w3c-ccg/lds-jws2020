@@ -1,6 +1,6 @@
 # Linked Data Signatures for JWS
 
-![Integration Tests](https://github.com/w3c-ccg/lds-jws2020/workflows/Integration%20Tests/badge.svg) [![codecov](https://codecov.io/gh/transmute-industries/lds-jws2020/branch/master/graph/badge.svg)](https://codecov.io/gh/transmute-industries/lds-jws2020)
+![json-web-key-2020](https://github.com/w3c-ccg/lds-jws2020/workflows/json-web-key-2020/badge.svg)
 
 [View On Github](https://github.com/w3c-ccg/lds-jws2020)
 
