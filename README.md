@@ -19,7 +19,7 @@ If you will only ever need to support Ed25519 or only Secp256k1, you should cons
 
 - [EcdsaSecp256k1Signature2019](https://github.com/decentralized-identity/lds-ecdsa-secp256k1-2019.js)
 
-## Supported JOSE Algss
+## Supported JOSE Algorithms
 
 The expected alg will be determined by the following table.
 
