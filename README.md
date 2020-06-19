@@ -1,6 +1,6 @@
 # Linked Data Signatures for JWS
 
-![json-web-key-2020](https://github.com/w3c-ccg/lds-jws2020/workflows/json-web-key-2020/badge.svg)
+![json-web-signature-2020](https://github.com/w3c-ccg/lds-jws2020/workflows/json-web-signature-2020/badge.svg)
 
 [View On Github](https://github.com/w3c-ccg/lds-jws2020)
 
@@ -18,6 +18,21 @@ If you will only ever need to support Ed25519 or only Secp256k1, you should cons
 - [Ed25519Signature2018](https://github.com/digitalbazaar/jsonld-signatures/blob/master/lib/suites/Ed25519Signature2018.js)
 
 - [EcdsaSecp256k1Signature2019](https://github.com/decentralized-identity/lds-ecdsa-secp256k1-2019.js)
+
+## Supported JOSE Algss
+
+The expected alg will be determined by the following table.
+
+| kty | crvOrSize | signature | keyAgreement | encryption     |
+| --- | --------- | --------- | ------------ | -------------- |
+| OKP | Ed25519   | EdDSA     |              |                |
+| OKP | X25519    |           | ECDH         | ECDH-ES+A256KW |
+| EC  | secp256k1 | ES256K    | ECDH         |                |
+| RSA | 2048      | PS256     |              | RSA-OAEP       |
+| EC  | P-256     | ES256     | ECDH         | ECDH-ES+A256KW |
+| EC  | P-384     | ES384     | ECDH         | ECDH-ES+A256KW |
+
+Anything else will result in an unsupported alg error.
 
 ## Usage
 
@@ -129,33 +144,9 @@ const result = await vc.verify({
 });
 ```
 
-## Developer Getting Started
-
-```
-npm i
-npm run test
-npm run coverage
-npm run docs
-```
-
-## Supported JOSE Algss
-
-The expected alg will be determined by the following table.
-
-| kty | crvOrSize | signature | keyAgreement | encryption     |
-| --- | --------- | --------- | ------------ | -------------- |
-| OKP | Ed25519   | EdDSA     |              |                |
-| OKP | X25519    |           | ECDH         | ECDH-ES+A256KW |
-| EC  | secp256k1 | ES256K    | ECDH         |                |
-| RSA | 2048      | PS256     |              | RSA-OAEP       |
-| EC  | P-256     | ES256     | ECDH         | ECDH-ES+A256KW |
-| EC  | P-384     | ES384     | ECDH         | ECDH-ES+A256KW |
-
-Anything else will result in an unsupported alg error.
-
 ### Suite Details
 
-Per [ld-signatures](https://w3c-dvcg.github.io/ld-signatures/#signature-suites), this Signature Suite defines the following:
+Per [ld-signatures](https://w3c-ccg.github.io/ld-signatures/#signature-suites), this Signature Suite defines the following:
 
 ```json
 {
