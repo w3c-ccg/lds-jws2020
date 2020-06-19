@@ -1,0 +1,20 @@
+{
+  "header": {
+    "kid": "3Set2I7Yj7T2-E6qTuSu34DMVPbYD3EIbEGfD2KU8Ac",
+    "alg": "ES384"
+  },
+  "payload": {
+    "sub": "did:example:alice",
+    "iss": "did:example:alice",
+    "boring_vanilla_claim": "with no semantic or cannonicalization support...",
+    "iat": 1592600790
+  },
+  "signature": "swm5-7tD3Ch-OzgZ1_ZmsLwLtZgubGQEJVGWVVfqyjPrUDQ4aU4Y7kvhm4Ioe2s-6P6NMnBrMv1Os05UnfQqDqNXz1UNVNYVg0h6ov9QKdKZNyuMAfD11n4eKUY-8cW5",
+  "key": {
+    "kid": "3Set2I7Yj7T2-E6qTuSu34DMVPbYD3EIbEGfD2KU8Ac",
+    "crv": "P-384",
+    "x": "6lYjpT7z8dbCV4cieg5AJkgZ0IeBuhmKFfSzv0DP8ZcG3rMbimsHfK6YJ53u9JGC",
+    "y": "LaPvN-O7BW9jfkW2oOe0Lg_rFpISDZn7vtgMkahpWEu0lB9i--nMAmjIUaxHu56B",
+    "kty": "EC"
+  }
+}
