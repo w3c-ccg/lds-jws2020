@@ -5,6 +5,9 @@
   "homepage": "https://github.com/w3c-ccg/lds-jws2020",
   "main": "./src/index.js",
   "scripts": {},
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/w3c-ccg/lds-jws2020.git"
