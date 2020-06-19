@@ -106,7 +106,7 @@ describe("integration tests", () => {
       });
       expect(signedVC.proof).toBeDefined();
 
-      const result = await vc.verify({
+      const result = await vc.verifyCredential({
         credential: signedVC,
         compactProof: false,
         documentLoader: documentLoader,
@@ -125,7 +125,7 @@ describe("integration tests", () => {
     });
     expect(signedVC.proof).toBeDefined();
 
-    const result = await vc.verify({
+    const result = await vc.verifyCredential({
       credential: signedVC,
       compactProof: false,
       documentLoader: documentLoader,
