@@ -23,7 +23,7 @@ export class JsonWebSignature2020 {
   public proof: any;
   public date: any;
   public creator: any;
-  public type: string = 'Ed25519Signature2018';
+  public type: string = 'JsonWebSignature2020'; //'Ed25519Signature2018';
   public signer: any;
   public verifier: any;
   public verificationMethod?: string;
@@ -98,7 +98,7 @@ export class JsonWebSignature2020 {
   // expansionMap,
   any) {
     // console.log(proof, this.type);
-    return proof.type === this.type;
+    return proof.type === this.type || proof.type === '/' + this.type;
   }
 
   async updateProof({ proof }: any) {
