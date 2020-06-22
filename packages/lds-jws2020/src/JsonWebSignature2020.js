@@ -1,6 +1,7 @@
 const {
   suites: { LinkedDataSignature }
 } = require("jsonld-signatures");
+const jsonld = require("jsonld");
 
 const base64url = require("base64url");
 
