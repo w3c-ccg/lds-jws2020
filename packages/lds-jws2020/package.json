@@ -23,8 +23,8 @@
     "crypto-ld": "^3.7.0",
     "did-method-key": "^0.2.0",
     "jose": "^1.17.1",
-    "jsonld": "^1.8.0",
-    "jsonld-signatures": "^4.4.0"
+    "jsonld": "^2.0.0",
+    "jsonld-signatures": "^5.0.0"
   },
   "devDependencies": {
     "@trust/keyto": "^0.3.7",
@@ -33,6 +33,6 @@
     "jest": "^24.9.0",
     "jsdoc": "^3.6.3",
     "node-forge": "^0.9.1",
-    "vc-js": "^0.3.0"
+    "vc-js": "^0.6.4"
   }
 }
