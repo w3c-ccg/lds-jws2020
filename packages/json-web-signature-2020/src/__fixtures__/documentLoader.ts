@@ -18,7 +18,7 @@ const localOverrides: any = {
   // https://w3id.org/security/v2
   // they are never called !
   // leave commented out... does not exit...
-  // 'https://w3id.org/security/v3': require('./contexts/security-v3.json'),
+  'https://w3id.org/security/v3': require('./contexts/security-v3.json'),
   'https://www.w3.org/2018/credentials/v1': require('./contexts/credentials-v1.json'),
   // leave commented out... does not exit...
   // 'https://www.w3.org/2018/credentials/v2': require('./contexts/credentials-v2.json'),
