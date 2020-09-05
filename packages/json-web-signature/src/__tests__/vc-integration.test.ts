@@ -48,5 +48,7 @@ it('can issue and verify', async () => {
       return res;
     },
   });
+  // uncomment to debug
+  // console.log(JSON.stringify(verification, null, 2));
   expect(verification.verified).toBe(true);
 });

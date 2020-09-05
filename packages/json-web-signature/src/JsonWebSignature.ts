@@ -243,6 +243,13 @@ export class JsonWebSignature {
     if (!verifier) {
       // warning...
       // any VM not defined in sec/v2 will be returned mandled here..
+      if (!verificationMethod.publicKeyJwk) {
+        console.warn(
+          'The current security context used by JSON-LD Signatures does not understand publicKeyJwk.'
+        );
+        verificationMethod.publicKeyJwk =
+          verificationMethod['sec:publicKeyJwk']['@value'];
+      }
       // Best advice is mutate sec-v2 locally to ensure it contains defintions
       // for your suite.
       // You cannot do this with digital bazaars code,
