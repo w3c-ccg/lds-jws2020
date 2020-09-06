@@ -26,6 +26,7 @@ export class JsonWebSignature {
   public signer: any;
   public verifier: any;
   public verificationMethod?: string;
+  public getVM: any;
   constructor(options: JsonWebSignatureOptions = {}) {
     this.signer = options.signer;
     this.date = options.date;
@@ -217,25 +218,26 @@ export class JsonWebSignature {
     // properties here and must allow for it
 
     let result;
+
     try {
       result = await jsonld.frame(
         verificationMethod,
         {
-          '@context': constants.SECURITY_CONTEXT_URL,
+          '@context': 'https://w3id.org/security/v2',
           '@embed': '@always',
           id: verificationMethod,
         },
         {
           documentLoader,
           compactToRelative: false,
-          expandContext: constants.SECURITY_CONTEXT_URL,
+          expandContext: 'https://w3id.org/security/v2',
         }
       );
     } catch (e) {
       console.error(e);
     }
 
-    if (!result) {
+    if (!result || !result.controller) {
       throw new Error(`Verification method ${verificationMethod} not found.`);
     }
 
@@ -251,7 +253,7 @@ export class JsonWebSignature {
         console.warn(
           'The current security context used by JSON-LD Signatures does not understand publicKeyJwk.'
         );
-        // console.log(verificationMethod);
+        console.log(verificationMethod);
         verificationMethod.publicKeyJwk =
           verificationMethod['sec:publicKeyJwk']['@value'];
       }

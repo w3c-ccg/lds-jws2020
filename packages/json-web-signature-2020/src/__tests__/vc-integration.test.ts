@@ -39,7 +39,7 @@ it('can issue', async () => {
   expect(verifiableCredential).toEqual(vc_0);
 });
 
-it.only('can verify', async () => {
+it('can verify', async () => {
   const verification = await vcjs.ld.verifyCredential({
     credential: { ...vc_0 },
     suite: new JsonWebSignature(),
