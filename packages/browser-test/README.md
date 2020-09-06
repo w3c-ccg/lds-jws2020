@@ -1,3 +1,9 @@
+## Smoke Testing React App
+
+This app is used to confirm the suite can run in the browser.
+
+## Create React App Boilerplate
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
