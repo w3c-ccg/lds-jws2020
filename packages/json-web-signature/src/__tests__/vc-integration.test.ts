@@ -11,7 +11,7 @@ import {
   documentLoader,
 } from '../__fixtures__';
 
-it('can issue and verify', async () => {
+it('can issue', async () => {
   const keypair = await JsonWebKey.from({
     ...keypair_0,
     id: issuer_0.id + keypair_0.id,
@@ -37,9 +37,11 @@ it('can issue and verify', async () => {
     },
   });
   expect(verifiableCredential).toEqual(vc_0);
+});
 
+it.only('can verify', async () => {
   const verification = await vcjs.ld.verifyCredential({
-    credential: verifiableCredential,
+    credential: { ...vc_0 },
     suite: new JsonWebSignature(),
     documentLoader: async (uri: string) => {
       const res = await documentLoader(uri);

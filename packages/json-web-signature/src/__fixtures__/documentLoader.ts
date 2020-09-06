@@ -17,10 +17,6 @@ golem.addContext({
   'https://example.org/jose/v1': require('./jose-context-v1.json'),
 });
 
-golem.addContext({
-  'https://w3id.org/security/v2': require('./hack-sec-v2.json'),
-});
-
 golem.addResolver({
   [issuer_0.id]: {
     resolve: async (_did: string) => {

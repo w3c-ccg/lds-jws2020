@@ -22,7 +22,7 @@ export class JsonWebSignature {
   public proof: any;
   public date: any;
   public creator: any;
-  public type: string = 'JsonWebSignature2020';
+  public type: string = 'https://w3id.org/security#JsonWebSignature2020';
   public signer: any;
   public verifier: any;
   public verificationMethod?: string;
@@ -90,7 +90,7 @@ export class JsonWebSignature {
   // documentLoader,
   // expansionMap,
   any) {
-    return proof.type === this.type;
+    return proof.type === 'sec:JsonWebSignature2020';
   }
 
   async updateProof({ proof }: any) {
@@ -215,27 +215,31 @@ export class JsonWebSignature {
 
     // Note: `expansionMap` is intentionally not passed; we can safely drop
     // properties here and must allow for it
-    const framed = await jsonld.frame(
-      verificationMethod,
-      {
-        // '@context': constants.SECURITY_CONTEXT_URL,
-        '@context': constants.SECURITY_CONTEXT_URL,
-        '@embed': '@always',
-        id: verificationMethod,
-      },
-      { documentLoader, compactToRelative: false }
-    );
 
-    if (!framed) {
+    let result;
+    try {
+      result = await jsonld.frame(
+        verificationMethod,
+        {
+          '@context': constants.SECURITY_CONTEXT_URL,
+          '@embed': '@always',
+          id: verificationMethod,
+        },
+        {
+          documentLoader,
+          compactToRelative: false,
+          expandContext: constants.SECURITY_CONTEXT_URL,
+        }
+      );
+    } catch (e) {
+      console.error(e);
+    }
+
+    if (!result) {
       throw new Error(`Verification method ${verificationMethod} not found.`);
     }
 
-    // ensure verification method has not been revoked
-    if (framed.revoked !== undefined) {
-      throw new Error('The verification method has been revoked.');
-    }
-
-    return framed;
+    return result;
   }
 
   async verifySignature({ verifyData, verificationMethod, proof }: any) {
@@ -247,6 +251,7 @@ export class JsonWebSignature {
         console.warn(
           'The current security context used by JSON-LD Signatures does not understand publicKeyJwk.'
         );
+        // console.log(verificationMethod);
         verificationMethod.publicKeyJwk =
           verificationMethod['sec:publicKeyJwk']['@value'];
       }
