@@ -72,6 +72,7 @@ export interface Vc {
 export interface Issuer {
   '@context': string[];
   id: string;
-  verificationMethod: any[];
-  assertionMethod: any[];
+  publicKey?: any[];
+  assertionMethod?: any[];
+  authentication?: any[];
 }
