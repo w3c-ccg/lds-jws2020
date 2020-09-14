@@ -4,8 +4,8 @@
 
 [View On Github](https://github.com/w3c-ccg/lds-jws2020)
 
-- [View Linked Data Signature Suite Vocabulary](https://w3c-ccg.github.io/lds-jws2020/contexts/)
-- [View Linked Data Signature Suite Context](https://w3c-ccg.github.io/lds-jws2020/contexts/lds-jws2020-v0.0.jsonld)
+- [View Linked Data Signature Suite Vocabulary](https://w3c-ccg.github.io/lds-jws2020/)
+- [View Linked Data Signature Suite Context](https://w3c-ccg.github.io/lds-jws2020/contexts/lds-jws2020-v1.json)
 
 ## Security Considerations
 

@@ -1,9 +1,9 @@
 import {
-  contexts,
   documentLoaderFactory,
-} from '@transmute/jsonld-document-loader';
+  contexts,
+} from "@transmute/jsonld-document-loader";
 
-import { issuer_0 } from './issuer.json';
+import { issuer_0 } from "./issuer.json";
 
 const golem = documentLoaderFactory.pluginFactory.build({
   contexts: {
@@ -14,12 +14,12 @@ const golem = documentLoaderFactory.pluginFactory.build({
 });
 
 golem.addContext({
-  'https://w3c-ccg.github.io/lds-jws2020/contexts/lds-jws2020-v1.json': require('./contexts/lds-jws2020-v1.json'),
+  "https://w3c-ccg.github.io/lds-jws2020/contexts/lds-jws2020-v1.json": require("./contexts/lds-jws2020-v1.json"),
 });
 
 golem.addResolver({
   [issuer_0.id]: {
-    resolve: async (_did: string) => {
+    resolve: async (_uri) => {
       return issuer_0;
     },
   },
