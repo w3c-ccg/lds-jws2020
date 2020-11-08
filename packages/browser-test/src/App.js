@@ -1,6 +1,5 @@
 import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
+
 import * as vcjs from "@transmute/vc.js";
 
 import {
@@ -9,45 +8,23 @@ import {
 } from "@transmute/json-web-signature-2020";
 
 import { documentLoader } from "./documentLoader";
-import { issuer_0 } from "./issuer.json";
+
 import { vc_template_0 } from "./credential.json";
 
+import {keys} from './keys'
+
 function App() {
+  const [state, setState] = React.useState({results: []})
   React.useEffect(() => {
     (async () => {
-      console.log("BEGIN SMOKE TEST");
-      const seed =
-        "9b937b81322d816cfab9d5a3baacc9b2a5febe4b149f126b3630f93a29527017";
-      const keyArgs = [
-        {
-          kty: "OKP",
-          crvOrSize: "Ed25519",
-          seed: new Uint8Array(Buffer.from(seed, "hex")),
-        },
-        {
-          kty: "EC",
-          crvOrSize: "secp256k1",
-          seed: new Uint8Array(Buffer.from(seed, "hex")),
-        },
-        {
-          kty: "EC",
-          crvOrSize: "P-384",
-        },
-      ];
+      const results = [];
+      await Promise.all(keys.map(async(key)=>{
+        const keypair = await JsonWebKey.from(key);
 
-      let keypairs = await Promise.all(
-        keyArgs.map(async (arg) => {
-          const keypair = await JsonWebKey.generate(arg);
-          console.log({ keypair });
-          return keypair;
-        })
-      );
-
-      const key = keypairs[0];
-      key.id = issuer_0.id + issuer_0.publicKey[0].id;
+      keypair.id = keypair.controller + keypair.id
 
       const suite = new JsonWebSignature({
-        key: key,
+        key: keypair,
         date: vc_template_0.issuanceDate,
       });
 
@@ -56,7 +33,7 @@ function App() {
           ...vc_template_0,
           issuer: {
             ...vc_template_0.issuer,
-            id: issuer_0.id,
+            id: keypair.controller,
           },
         },
         suite,
@@ -67,8 +44,6 @@ function App() {
           return res;
         },
       });
-      console.log({ verifiableCredential });
-
       const verification = await vcjs.ld.verifyCredential({
         credential: { ...verifiableCredential },
         suite: new JsonWebSignature(),
@@ -79,25 +54,26 @@ function App() {
           return res;
         },
       });
-      console.log({ verification });
+      results.push({
+        key, verifiableCredential, verification
+      })
+      }));
+      setState({results})
+      console.log('results: ', results)
+
     })();
   }, []);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.... see console.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      See console.
+      {
+        state.results.map((result)=>{
+          return (<div key={result.key.publicKeyJwk.kty}>
+            <h3>{result.key.publicKeyJwk.crv} {result.key.publicKeyJwk.kty}, Verified: {JSON.stringify(result.verification.verified)}</h3>
+            <pre>{JSON.stringify(result.verifiableCredential, null, 2)}</pre>
+          </div>)
+        })
+      }
     </div>
   );
 }

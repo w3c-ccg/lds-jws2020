@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/lds-jws2020/browser-test/static/css/main.37baffe0.chunk.css",
+    "main.js": "/lds-jws2020/browser-test/static/js/main.3b9d363e.chunk.js",
+    "main.js.map": "/lds-jws2020/browser-test/static/js/main.3b9d363e.chunk.js.map",
+    "runtime-main.js": "/lds-jws2020/browser-test/static/js/runtime-main.6a67126c.js",
+    "runtime-main.js.map": "/lds-jws2020/browser-test/static/js/runtime-main.6a67126c.js.map",
+    "static/js/2.c827734b.chunk.js": "/lds-jws2020/browser-test/static/js/2.c827734b.chunk.js",
+    "static/js/2.c827734b.chunk.js.map": "/lds-jws2020/browser-test/static/js/2.c827734b.chunk.js.map",
+    "index.html": "/lds-jws2020/browser-test/index.html",
+    "precache-manifest.0910e9abfc5cdedf334ee953a529c798.js": "/lds-jws2020/browser-test/precache-manifest.0910e9abfc5cdedf334ee953a529c798.js",
+    "service-worker.js": "/lds-jws2020/browser-test/service-worker.js",
+    "static/css/main.37baffe0.chunk.css.map": "/lds-jws2020/browser-test/static/css/main.37baffe0.chunk.css.map",
+    "static/js/2.c827734b.chunk.js.LICENSE.txt": "/lds-jws2020/browser-test/static/js/2.c827734b.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6a67126c.js",
+    "static/js/2.c827734b.chunk.js",
+    "static/css/main.37baffe0.chunk.css",
+    "static/js/main.3b9d363e.chunk.js"
+  ]
+}

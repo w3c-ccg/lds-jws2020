@@ -3,7 +3,9 @@ import {
   contexts,
 } from "@transmute/jsonld-document-loader";
 
-import { issuer_0 } from "./issuer.json";
+import { driver as ed25519Driver} from '@transmute/did-key-ed25519'
+import { driver as secp256k1Driver} from '@transmute/did-key-secp256k1'
+import { driver as webCryptoDriver} from '@transmute/did-key-web-crypto'
 
 const golem = documentLoaderFactory.pluginFactory.build({
   contexts: {
@@ -18,12 +20,31 @@ golem.addContext({
 });
 
 golem.addResolver({
-  [issuer_0.id]: {
-    resolve: async (_uri) => {
-      return issuer_0;
+  'did:key:': {
+    resolve: async (uri) => {
+      const { didDocument } = await webCryptoDriver.resolve(uri, {
+        accept: 'application/did+json',
+      });
+      return didDocument;
     },
   },
-});
+  'did:key:z6': {
+    resolve: async (uri) => {
+      const { didDocument } = await ed25519Driver.resolve(uri, {
+        accept: 'application/did+json',
+      });
+      return didDocument;
+    },
+  },
+  'did:key:zQ': {
+    resolve: async (uri) => {
+      const { didDocument } = await secp256k1Driver.resolve(uri, {
+        accept: 'application/did+json',
+      });
+      return didDocument;
+    },
+  },
+})
 
 const documentLoader = golem.buildDocumentLoader();
 

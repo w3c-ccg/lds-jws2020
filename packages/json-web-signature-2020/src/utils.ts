@@ -1,8 +1,13 @@
 import crypto from 'crypto';
-
-import { Ed25519KeyPair, EdDSA } from '@transmute/did-key-ed25519';
+import { Jws } from '@transmute/did-key-common';
+import { Ed25519KeyPair, EdDSA, keyUtils } from '@transmute/did-key-ed25519';
 import { Secp256k1KeyPair, ES256K } from '@transmute/did-key-secp256k1';
-import { P384KeyPair, ES384 } from '@transmute/did-key-p384';
+import {
+  KeyPair,
+  privateKeyToSigner,
+  publicKeyToVerifier,
+  createDetachedJws,
+} from '@transmute/did-key-web-crypto';
 
 import { JWK, JsonWebKeyPair } from './types';
 
@@ -26,16 +31,16 @@ export const orderJwk = (jwk: JWK): JWK => {
   return _jwk;
 };
 
-export const didKeyToJsonWebKey = async (
-  didKeyPair: Ed25519KeyPair | Secp256k1KeyPair | P384KeyPair
-): Promise<JsonWebKeyPair> => {
-  const publicKeyJwk = (await didKeyPair.toJwk()) as JWK;
-  const privateKeyJwk = (await didKeyPair.toJwk(true)) as JWK;
-  const id = '#' + publicKeyJwk.kid;
+export const didKeyToJsonWebKey = (
+  didKeyPair: Ed25519KeyPair | Secp256k1KeyPair | KeyPair
+): JsonWebKeyPair => {
+  const json = didKeyPair.toJsonWebKeyPair(true);
+  const { publicKeyJwk, privateKeyJwk } = json;
+
   delete publicKeyJwk.kid;
   delete privateKeyJwk.kid;
   return {
-    id,
+    id: `#${keyUtils.getKid(publicKeyJwk)}`,
     type: 'JsonWebKey2020',
     controller: didKeyPair.controller,
     publicKeyJwk: orderJwk(publicKeyJwk),
@@ -66,11 +71,41 @@ export const didKeyGenerator = async (
       })
     );
   }
+
+  if (kty === 'EC' && crvOrSize === 'P-256') {
+    if (seed) {
+      throw new Error('P-256 does not support deterministic seed.');
+    }
+    return didKeyToJsonWebKey(
+      await KeyPair.generate({
+        kty,
+        crvOrSize,
+      })
+    );
+  }
+
   if (kty === 'EC' && crvOrSize === 'P-384') {
     if (seed) {
       throw new Error('P-384 does not support deterministic seed.');
     }
-    return didKeyToJsonWebKey(await P384KeyPair.generate());
+    return didKeyToJsonWebKey(
+      await KeyPair.generate({
+        kty,
+        crvOrSize,
+      })
+    );
+  }
+
+  if (kty === 'EC' && crvOrSize === 'P-521') {
+    if (seed) {
+      throw new Error('P-256 does not support deterministic seed.');
+    }
+    return didKeyToJsonWebKey(
+      await KeyPair.generate({
+        kty,
+        crvOrSize,
+      })
+    );
   }
 
   throw new Error(`JsonWebKey2020 does not support ${kty} and ${crvOrSize}`);
@@ -94,9 +129,26 @@ export const signWithDetachedJws = async (
       crit: ['b64'],
     });
   }
+  if (privateKeyJwk.crv === 'P-256') {
+    const signer = await privateKeyToSigner(privateKeyJwk);
+    return createDetachedJws(signer, message, {
+      alg: 'ES256',
+      b64: false,
+      crit: ['b64'],
+    });
+  }
   if (privateKeyJwk.crv === 'P-384') {
-    return ES384.signDetached(privateKeyJwk as any, message, {
+    const signer = await privateKeyToSigner(privateKeyJwk);
+    return createDetachedJws(signer, message, {
       alg: 'ES384',
+      b64: false,
+      crit: ['b64'],
+    });
+  }
+  if (privateKeyJwk.crv === 'P-521') {
+    const signer = await privateKeyToSigner(privateKeyJwk);
+    return createDetachedJws(signer, message, {
+      alg: 'ES521',
       b64: false,
       crit: ['b64'],
     });
@@ -117,8 +169,17 @@ export const verifyWithDetachedJws = async (
   if (publicKeyJwk.crv === 'secp256k1') {
     return ES256K.verifyDetached(jws, message, publicKeyJwk as any);
   }
+  if (publicKeyJwk.crv === 'P-256') {
+    const verifier = await publicKeyToVerifier(publicKeyJwk);
+    return Jws.verifyDetachedJws(verifier, message, jws);
+  }
   if (publicKeyJwk.crv === 'P-384') {
-    return ES384.verifyDetached(publicKeyJwk as any, jws, message as any);
+    const verifier = await publicKeyToVerifier(publicKeyJwk);
+    return Jws.verifyDetachedJws(verifier, message, jws);
+  }
+  if (publicKeyJwk.crv === 'P-521') {
+    const verifier = await publicKeyToVerifier(publicKeyJwk);
+    return Jws.verifyDetachedJws(verifier, message, jws);
   }
   throw new Error(
     `JsonWebKey2020 does not support verify with ${publicKeyJwk.crv}`
