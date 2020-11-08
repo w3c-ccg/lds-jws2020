@@ -1,8 +1,13 @@
 import crypto from 'crypto';
-import { Jws } from '@transmute/did-key-common'
+import { Jws } from '@transmute/did-key-common';
 import { Ed25519KeyPair, EdDSA, keyUtils } from '@transmute/did-key-ed25519';
 import { Secp256k1KeyPair, ES256K } from '@transmute/did-key-secp256k1';
-import { KeyPair, privateKeyToSigner, publicKeyToVerifier, createDetachedJws  } from '@transmute/did-key-web-crypto';
+import {
+  KeyPair,
+  privateKeyToSigner,
+  publicKeyToVerifier,
+  createDetachedJws,
+} from '@transmute/did-key-web-crypto';
 
 import { JWK, JsonWebKeyPair } from './types';
 
@@ -29,9 +34,9 @@ export const orderJwk = (jwk: JWK): JWK => {
 export const didKeyToJsonWebKey = (
   didKeyPair: Ed25519KeyPair | Secp256k1KeyPair | KeyPair
 ): JsonWebKeyPair => {
-  const json = didKeyPair.toJsonWebKeyPair(true)
-  const { publicKeyJwk, privateKeyJwk} = json
- 
+  const json = didKeyPair.toJsonWebKeyPair(true);
+  const { publicKeyJwk, privateKeyJwk } = json;
+
   delete publicKeyJwk.kid;
   delete privateKeyJwk.kid;
   return {
@@ -71,27 +76,36 @@ export const didKeyGenerator = async (
     if (seed) {
       throw new Error('P-256 does not support deterministic seed.');
     }
-    return didKeyToJsonWebKey(await KeyPair.generate({
-      kty, crvOrSize
-    }));
+    return didKeyToJsonWebKey(
+      await KeyPair.generate({
+        kty,
+        crvOrSize,
+      })
+    );
   }
 
   if (kty === 'EC' && crvOrSize === 'P-384') {
     if (seed) {
       throw new Error('P-384 does not support deterministic seed.');
     }
-    return didKeyToJsonWebKey(await KeyPair.generate({
-      kty, crvOrSize
-    }));
+    return didKeyToJsonWebKey(
+      await KeyPair.generate({
+        kty,
+        crvOrSize,
+      })
+    );
   }
 
   if (kty === 'EC' && crvOrSize === 'P-521') {
     if (seed) {
       throw new Error('P-256 does not support deterministic seed.');
     }
-    return didKeyToJsonWebKey(await KeyPair.generate({
-      kty, crvOrSize
-    }));
+    return didKeyToJsonWebKey(
+      await KeyPair.generate({
+        kty,
+        crvOrSize,
+      })
+    );
   }
 
   throw new Error(`JsonWebKey2020 does not support ${kty} and ${crvOrSize}`);
@@ -116,28 +130,28 @@ export const signWithDetachedJws = async (
     });
   }
   if (privateKeyJwk.crv === 'P-256') {
-    const signer = await privateKeyToSigner(privateKeyJwk)
-    return createDetachedJws(signer, message,  {
+    const signer = await privateKeyToSigner(privateKeyJwk);
+    return createDetachedJws(signer, message, {
       alg: 'ES256',
       b64: false,
       crit: ['b64'],
-    })
+    });
   }
   if (privateKeyJwk.crv === 'P-384') {
-    const signer = await privateKeyToSigner(privateKeyJwk)
-    return createDetachedJws(signer, message,  {
+    const signer = await privateKeyToSigner(privateKeyJwk);
+    return createDetachedJws(signer, message, {
       alg: 'ES384',
       b64: false,
       crit: ['b64'],
-    })
+    });
   }
   if (privateKeyJwk.crv === 'P-521') {
-    const signer = await privateKeyToSigner(privateKeyJwk)
-    return createDetachedJws(signer, message,  {
+    const signer = await privateKeyToSigner(privateKeyJwk);
+    return createDetachedJws(signer, message, {
       alg: 'ES521',
       b64: false,
       crit: ['b64'],
-    })
+    });
   }
   throw new Error(
     `JsonWebKey2020 does not support sign with ${privateKeyJwk.crv}`
@@ -156,15 +170,15 @@ export const verifyWithDetachedJws = async (
     return ES256K.verifyDetached(jws, message, publicKeyJwk as any);
   }
   if (publicKeyJwk.crv === 'P-256') {
-    const verifier = await publicKeyToVerifier(publicKeyJwk)
+    const verifier = await publicKeyToVerifier(publicKeyJwk);
     return Jws.verifyDetachedJws(verifier, message, jws);
   }
   if (publicKeyJwk.crv === 'P-384') {
-    const verifier = await publicKeyToVerifier(publicKeyJwk)
+    const verifier = await publicKeyToVerifier(publicKeyJwk);
     return Jws.verifyDetachedJws(verifier, message, jws);
   }
   if (publicKeyJwk.crv === 'P-521') {
-    const verifier = await publicKeyToVerifier(publicKeyJwk)
+    const verifier = await publicKeyToVerifier(publicKeyJwk);
     return Jws.verifyDetachedJws(verifier, message, jws);
   }
   throw new Error(
