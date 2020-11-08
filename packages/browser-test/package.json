@@ -1,6 +1,7 @@
 {
   "name": "browser-test",
   "version": "1.0.1-alpha.0",
+  "homepage":"https://w3c-ccg.github.io/lds-jws2020/browser-test",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
@@ -19,7 +20,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build; rm -rf ../../docs/browser-test; mv ./build ../../docs/browser-test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
