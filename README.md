@@ -4,6 +4,8 @@
 
 [View On Github](https://github.com/w3c-ccg/lds-jws2020)
 
+- [Browser Tests](https://w3c-ccg.github.io/lds-jws2020/browser-test/)
+
 - [View Linked Data Signature Suite Vocabulary](https://w3c-ccg.github.io/lds-jws2020/)
 - [View Linked Data Signature Suite Context](https://w3c-ccg.github.io/lds-jws2020/contexts/lds-jws2020-v1.json)
 
@@ -84,6 +86,7 @@ const verifiableCredential = await vc.issue({
     "@context": [
       "https://www.w3.org/2018/credentials/v1",
       "https://www.w3.org/2018/credentials/examples/v1",
+      "https://w3c-ccg.github.io/lds-jws2020/contexts/lds-jws2020-v1.json",
     ],
     id: "http://example.gov/credentials/3732",
     type: ["VerifiableCredential", "UniversityDegreeCredential"],
@@ -105,38 +108,29 @@ const result = await vc.verify({
     "@context": [
       "https://www.w3.org/2018/credentials/v1",
       "https://www.w3.org/2018/credentials/examples/v1",
+      "https://w3c-ccg.github.io/lds-jws2020/contexts/lds-jws2020-v1.json",
     ],
     id: "http://example.gov/credentials/3732",
     type: ["VerifiableCredential", "UniversityDegreeCredential"],
     issuer: {
-      id: "did:key:z6MkpP568Jfkc1n51vdEut2EebtvhFXkod7S6LMZTVPGsZiZ",
+      id: "https://example.com/issuer/123",
     },
     issuanceDate: "2020-03-10T04:24:12.164Z",
     credentialSubject: {
-      id: "did:key:z6MkpP568Jfkc1n51vdEut2EebtvhFXkod7S6LMZTVPGsZiZ",
+      id: "did:example:456",
       degree: {
         type: "BachelorDegree",
         name: "Bachelor of Science and Arts",
       },
     },
     proof: {
-      // Not that /JsonWebSignature2020 !== JsonWebSignature2020
-      // This issue will persist as long as vc-js does not support JsonWebSignature2020
-      // See https://github.com/digitalbazaar/vc-js/issues/80
-      type: "/JsonWebSignature2020",
-      "dct:created": {
-        type: "xsd:dateTime",
-        "@value": "2019-12-11T03:50:55Z",
-      },
-      "https://w3id.org/security#jws":
-        "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..i2zKj2p9Ek_LyTmZRD--AjqbKCDo863BLR5TAcwiUBJO7XS9e-C2LrgQOS4iBz_zuLqMgYTBYPqibER3Rr0iCw",
-      "https://w3id.org/security#proofPurpose": {
-        id: "https://w3id.org/security#assertionMethod",
-      },
-      "https://w3id.org/security#verificationMethod": {
-        id:
-          "did:key:z6MkpP568Jfkc1n51vdEut2EebtvhFXkod7S6LMZTVPGsZiZ#DTXI1UCGeLHx3B6GmZtMQuR8b3KDdaayEYPJN8iME6o",
-      },
+      type: "JsonWebSignature2020",
+      created: "2019-12-11T03:50:55Z",
+      jws:
+        "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..MJ5GwWRMsadCyLNXU_flgJtsS32584MydBxBuygps_cM0sbU3abTEOMyUvmLNcKOwOBE1MfDoB1_YY425W3sAg",
+      proofPurpose: "assertionMethod",
+      verificationMethod:
+        "https://example.com/issuer/123#ovsDKYBjFemIy8DVhc-w2LSi8CvXMw2AYDzHj04yxkc",
     },
   },
   documentLoader: documentLoader,
