@@ -46,7 +46,7 @@ it('can verify', async () => {
     documentLoader: async (uri: string) => {
       const res = await documentLoader(uri);
       // uncomment to debug
-      // console.log(res)
+      // console.log(res);
       return res;
     },
   });
