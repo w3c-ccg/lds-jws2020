@@ -2,7 +2,7 @@
   "name": "@transmute/json-web-key-2020",
   "author": "Orie Steele",
   "module": "dist/json-web-key-2020.esm.js",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "license": "Apache-2.0",
   "publishConfig": {
     "access": "public"

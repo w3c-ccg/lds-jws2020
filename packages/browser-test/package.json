@@ -1,6 +1,6 @@
 {
   "name": "browser-test",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "homepage": "https://w3c-ccg.github.io/lds-jws2020/browser-test",
   "private": true,
   "dependencies": {
@@ -10,7 +10,7 @@
     "@transmute/did-key-ed25519": "^0.2.1-unstable.24",
     "@transmute/did-key-secp256k1": "^0.2.1-unstable.24",
     "@transmute/did-key-web-crypto": "^0.2.1-unstable.24",
-    "@transmute/json-web-signature-2020": "^1.1.0",
+    "@transmute/json-web-signature-2020": "^2.0.0",
     "@transmute/jsonld-document-loader": "^0.2.0",
     "@transmute/vc.js": "^0.1.1-unstable.4",
     "jsonld": "^3.1.1",
