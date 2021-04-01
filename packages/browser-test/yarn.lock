@@ -1742,16 +1742,17 @@
     bs58 "^4.0.1"
     canonicalize "^1.0.1"
 
-"@transmute/json-web-signature-2020@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@transmute/json-web-signature-2020/-/json-web-signature-2020-1.1.0.tgz#859bb5c531eb5d66f1f1afda25b5bdec7d671b51"
-  integrity sha512-W+bCu70ZkjqXJe6FF3WSvf4NeD6p0FHrTAOLhAnOFTuaChJQQcH+GsSuNLLh+HbLpT2xOfSrWac9ce9r4zRQXA==
+"@transmute/json-web-signature-2020@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@transmute/json-web-signature-2020/-/json-web-signature-2020-2.0.0.tgz#4c45165cc82fc27dd1d686715e8a9780b6f8c4e6"
+  integrity sha512-eOjT8hKhF3xe3RmPUTq+FaAWotf2R0yYgxlE7347blifQQohLs55qlQQHYdLu3QcdfFnO3KquifrUq1Cvk6FwQ==
   dependencies:
     "@transmute/did-key-common" "^0.2.1-unstable.24"
     "@transmute/did-key-ed25519" "^0.2.1-unstable.24"
     "@transmute/did-key-p384" "^0.2.1-unstable.13"
     "@transmute/did-key-secp256k1" "^0.2.1-unstable.24"
     "@transmute/did-key-web-crypto" "^0.2.1-unstable.24"
+    jsonld "^3.2.0"
     security-context "^4.0.0"
 
 "@transmute/jsonld-document-loader@^0.2.0":
@@ -6767,6 +6768,19 @@ jsonld@^3.1.1:
     semver "^6.3.0"
     xmldom "0.1.19"
 
+jsonld@^3.2.0:
+  version "3.3.2"
+  resolved "https://registry.yarnpkg.com/jsonld/-/jsonld-3.3.2.tgz#f8688b349385ff5c755e83c7f60a9cf834078fc0"
+  integrity sha512-DXqG/fdiG7eJ8FzvSd58bW8DQsulQR/gjLYUz9PxBP/WTTpB2HzjjdxSAx5aBHewJ0RiFAV/QcqGCJjxHvuIzw==
+  dependencies:
+    canonicalize "^1.0.1"
+    lru-cache "^5.1.1"
+    object.fromentries "^2.0.2"
+    rdf-canonize "^2.0.1"
+    request "^2.88.0"
+    semver "^6.3.0"
+    xmldom "0.1.19"
+
 jsprim@^1.2.2:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/jsprim/-/jsprim-1.4.1.tgz#313e66bc1e5cc06e438bc1b7499c2e5c56acb6a2"
@@ -9076,6 +9090,14 @@ rdf-canonize@^1.0.2:
     node-forge "^0.9.1"
     semver "^6.3.0"
 
+rdf-canonize@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/rdf-canonize/-/rdf-canonize-2.0.1.tgz#12c9b8b41570cd669d9b152c9e679063478ba194"
+  integrity sha512-/GVELjrfW8G/wS4QfDZ5Kq68cS1belVNJqZlcwiErerexeBUsgOINCROnP7UumWIBNdeCwTVLE9NVXMnRYK0lA==
+  dependencies:
+    semver "^6.3.0"
+    setimmediate "^1.0.5"
+
 react-app-polyfill@^1.0.6:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/react-app-polyfill/-/react-app-polyfill-1.0.6.tgz#890f8d7f2842ce6073f030b117de9130a5f385f0"
@@ -9843,7 +9865,7 @@ set-value@^2.0.0, set-value@^2.0.1:
     is-plain-object "^2.0.3"
     split-string "^3.0.1"
 
-setimmediate@^1.0.4:
+setimmediate@^1.0.4, setimmediate@^1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/setimmediate/-/setimmediate-1.0.5.tgz#290cbb232e306942d7d7ea9b83732ab7856f8285"
   integrity sha1-KQy7Iy4waULX1+qbg3Mqt4VvgoU=
@@ -11413,9 +11435,9 @@ xtend@^4.0.0, xtend@~4.0.1:
   integrity sha512-LKYU1iAXJXUgAXn9URjiu+MWhyUXHsvfp7mcuYm9dSUKK0/CjtrUwFAxD82/mCWbtLsGjFIad0wIsod4zrTAEQ==
 
 y18n@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/y18n/-/y18n-4.0.0.tgz#95ef94f85ecc81d007c264e190a120f0a3c8566b"
-  integrity sha512-r9S/ZyXu/Xu9q1tYlpsLIsa3EeLXXk0VwlxqTcFRfg9EhMW+17kbt9G0NrgCmhGb5vT2hyhJZLfDGx+7+5Uj/w==
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/y18n/-/y18n-4.0.1.tgz#8db2b83c31c5d75099bb890b23f3094891e247d4"
+  integrity sha512-wNcy4NvjMYL8gogWWYAO7ZFWFfHcbdbE57tZO8e4cbpj8tfUcwrwqSl3ad8HxpYWCdXcJUCeKKZS62Av1affwQ==
 
 yallist@^3.0.2:
   version "3.1.1"
