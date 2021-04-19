@@ -24,7 +24,7 @@
     "prepare": "tsdx build"
   },
   "peerDependencies": {
-    "jose": "^1.27.1"
+    "jose": "^1.28.1"
   },
   "husky": {
     "hooks": {
@@ -39,7 +39,7 @@
   },
   "devDependencies": {
     "husky": "^4.2.5",
-    "jose": "^1.27.1",
+    "jose": "^1.28.1",
     "tsdx": "^0.13.2",
     "tslib": "^2.0.0",
     "typescript": "^3.9.5"
