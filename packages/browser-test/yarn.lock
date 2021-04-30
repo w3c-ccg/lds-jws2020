@@ -1742,16 +1742,17 @@
     bs58 "^4.0.1"
     canonicalize "^1.0.1"
 
-"@transmute/json-web-signature-2020@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@transmute/json-web-signature-2020/-/json-web-signature-2020-1.1.0.tgz#859bb5c531eb5d66f1f1afda25b5bdec7d671b51"
-  integrity sha512-W+bCu70ZkjqXJe6FF3WSvf4NeD6p0FHrTAOLhAnOFTuaChJQQcH+GsSuNLLh+HbLpT2xOfSrWac9ce9r4zRQXA==
+"@transmute/json-web-signature-2020@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@transmute/json-web-signature-2020/-/json-web-signature-2020-2.0.0.tgz#4c45165cc82fc27dd1d686715e8a9780b6f8c4e6"
+  integrity sha512-eOjT8hKhF3xe3RmPUTq+FaAWotf2R0yYgxlE7347blifQQohLs55qlQQHYdLu3QcdfFnO3KquifrUq1Cvk6FwQ==
   dependencies:
     "@transmute/did-key-common" "^0.2.1-unstable.24"
     "@transmute/did-key-ed25519" "^0.2.1-unstable.24"
     "@transmute/did-key-p384" "^0.2.1-unstable.13"
     "@transmute/did-key-secp256k1" "^0.2.1-unstable.24"
     "@transmute/did-key-web-crypto" "^0.2.1-unstable.24"
+    jsonld "^3.2.0"
     security-context "^4.0.0"
 
 "@transmute/jsonld-document-loader@^0.2.0":
@@ -4885,9 +4886,9 @@ fb-watchman@^2.0.0:
     bser "2.1.1"
 
 figgy-pudding@^3.5.1:
-  version "3.5.1"
-  resolved "https://registry.yarnpkg.com/figgy-pudding/-/figgy-pudding-3.5.1.tgz#862470112901c727a0e495a80744bd5baa1d6790"
-  integrity sha512-vNKxJHTEKNThjfrdJwHc7brvM6eVevuO5nTj6ez8ZQ1qbXTvGthucRF7S4vf2cr71QVnT70V34v0S1DyQsti0w==
+  version "3.5.2"
+  resolved "https://registry.yarnpkg.com/figgy-pudding/-/figgy-pudding-3.5.2.tgz#b4eee8148abb01dcf1d1ac34367d59e12fa61d6e"
+  integrity sha512-0btnI/H8f2pavGMN8w40mlSKOfTK2SVJmBfBeVIj3kNw0swwgzyRq0d5TJVOwodFmtvpPeWPN/MCcfuWF0Ezbw==
 
 figures@^3.0.0:
   version "3.2.0"
@@ -6763,6 +6764,19 @@ jsonld@^3.1.1:
     lru-cache "^5.1.1"
     object.fromentries "^2.0.2"
     rdf-canonize "^1.0.2"
+    request "^2.88.0"
+    semver "^6.3.0"
+    xmldom "0.1.19"
+
+jsonld@^3.2.0:
+  version "3.3.2"
+  resolved "https://registry.yarnpkg.com/jsonld/-/jsonld-3.3.2.tgz#f8688b349385ff5c755e83c7f60a9cf834078fc0"
+  integrity sha512-DXqG/fdiG7eJ8FzvSd58bW8DQsulQR/gjLYUz9PxBP/WTTpB2HzjjdxSAx5aBHewJ0RiFAV/QcqGCJjxHvuIzw==
+  dependencies:
+    canonicalize "^1.0.1"
+    lru-cache "^5.1.1"
+    object.fromentries "^2.0.2"
+    rdf-canonize "^2.0.1"
     request "^2.88.0"
     semver "^6.3.0"
     xmldom "0.1.19"
@@ -9076,6 +9090,14 @@ rdf-canonize@^1.0.2:
     node-forge "^0.9.1"
     semver "^6.3.0"
 
+rdf-canonize@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/rdf-canonize/-/rdf-canonize-2.0.1.tgz#12c9b8b41570cd669d9b152c9e679063478ba194"
+  integrity sha512-/GVELjrfW8G/wS4QfDZ5Kq68cS1belVNJqZlcwiErerexeBUsgOINCROnP7UumWIBNdeCwTVLE9NVXMnRYK0lA==
+  dependencies:
+    semver "^6.3.0"
+    setimmediate "^1.0.5"
+
 react-app-polyfill@^1.0.6:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/react-app-polyfill/-/react-app-polyfill-1.0.6.tgz#890f8d7f2842ce6073f030b117de9130a5f385f0"
@@ -9843,7 +9865,7 @@ set-value@^2.0.0, set-value@^2.0.1:
     is-plain-object "^2.0.3"
     split-string "^3.0.1"
 
-setimmediate@^1.0.4:
+setimmediate@^1.0.4, setimmediate@^1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/setimmediate/-/setimmediate-1.0.5.tgz#290cbb232e306942d7d7ea9b83732ab7856f8285"
   integrity sha1-KQy7Iy4waULX1+qbg3Mqt4VvgoU=
@@ -10156,9 +10178,9 @@ sshpk@^1.7.0:
     tweetnacl "~0.14.0"
 
 ssri@^6.0.1:
-  version "6.0.1"
-  resolved "https://registry.yarnpkg.com/ssri/-/ssri-6.0.1.tgz#2a3c41b28dd45b62b63676ecb74001265ae9edd8"
-  integrity sha512-3Wge10hNcT1Kur4PDFwEieXSCMCJs/7WvSACcrMYrNp+b8kDL1/0wJch5Ni2WrtwEa2IO8OsVfeKIciKCDx/QA==
+  version "6.0.2"
+  resolved "https://registry.yarnpkg.com/ssri/-/ssri-6.0.2.tgz#157939134f20464e7301ddba3e90ffa8f7728ac5"
+  integrity sha512-cepbSq/neFK7xB6A50KHN0xHDotYzq58wWCa5LeWqnPrHG8GzfEjO/4O8kpmcGW+oaxkvhEJCWgbgNk4/ZV93Q==
   dependencies:
     figgy-pudding "^3.5.1"
 
