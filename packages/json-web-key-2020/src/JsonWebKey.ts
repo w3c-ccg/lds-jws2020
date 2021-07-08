@@ -1,4 +1,4 @@
-import jose from 'jose';
+import * as jose from 'jose';
 
 import base64url from 'base64url';
 import R from 'ramda';
