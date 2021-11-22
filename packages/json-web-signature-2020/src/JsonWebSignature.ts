@@ -355,9 +355,11 @@ export class JsonWebSignature {
 
 }
 
-function _includesContext({ docuement, contextUrl }: any) {
-  const context = docuement['@context'];
+function _includesContext({ document, contextUrl }: any) {
 
-  return context === contextUrl ||
-    (Array.isArray(context) && context.includes(contextUrl);
+  console.log(document);
+
+  const context = document['@context'];
+
+  return context === contextUrl || (Array.isArray(context) && context.includes(contextUrl));
 }
