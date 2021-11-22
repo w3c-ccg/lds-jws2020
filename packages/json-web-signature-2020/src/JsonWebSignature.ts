@@ -27,9 +27,12 @@ export class JsonWebSignature {
   public verifier: any;
   public verificationMethod?: string;
   public getVM: any;
+  public contextUrl: string;
+
   constructor(options: JsonWebSignatureOptions = {}) {
     this.signer = options.signer;
     this.date = options.date;
+    this.contextUrl = 'https://w3c-ccg.github.io/lds-jws2020/contexts/v1/';
     if (options.key) {
       this.key = options.key;
       this.verificationMethod = this.key.id;
@@ -87,10 +90,10 @@ export class JsonWebSignature {
   async matchProof({
     proof,
   }: // document,
-  // purpose,
-  // documentLoader,
-  // expansionMap,
-  any) {
+    // purpose,
+    // documentLoader,
+    // expansionMap,
+    any) {
     return proof.type === 'sec:JsonWebSignature2020';
   }
 
@@ -327,4 +330,34 @@ export class JsonWebSignature {
       return { verified: false, error };
     }
   }
+
+  ensureSuiteContext({ document, addSuiteContext }: any) {
+
+    const { contextUrl } = this;
+
+    if (_includesContext({ document, contextUrl })) {
+      // document already includes the required context
+      return;
+    }
+
+    if (!addSuiteContext) {
+      throw new TypeError(
+        `The document to be signed must contain this suite's @context, ` +
+        `"${contextUrl}".`);
+    }
+
+    // enforce the suite's context by adding it to the document
+    const existingContext = document['@context'] || [];
+
+    document['@context'] = Array.isArray(existingContext) ?
+      [...existingContext, contextUrl] : [existingContext, contextUrl];
+  }
+
+}
+
+function _includesContext({ docuement, contextUrl }: any) {
+  const context = docuement['@context'];
+
+  return context === contextUrl ||
+    (Array.isArray(context) && context.includes(contextUrl);
 }
