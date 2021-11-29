@@ -32,7 +32,7 @@ export class JsonWebSignature {
   constructor(options: JsonWebSignatureOptions = {}) {
     this.signer = options.signer;
     this.date = options.date;
-    this.contextUrl = 'https://w3c-ccg.github.io/lds-jws2020/contexts/v1/';
+    this.contextUrl = 'https://w3id.org/security/suites/jws-2020/v1';
     if (options.key) {
       this.key = options.key;
       this.verificationMethod = this.key.id;
