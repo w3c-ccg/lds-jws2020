@@ -1,13 +1,15 @@
 # Linked Data Signatures for JWS
 
-![json-web-signature-2020](https://github.com/w3c-ccg/lds-jws2020/workflows/json-web-signature-2020/badge.svg)
-
 [View On Github](https://github.com/w3c-ccg/lds-jws2020)
-
-- [Browser Tests](https://w3c-ccg.github.io/lds-jws2020/browser-test/)
 
 - [View Linked Data Signature Suite Vocabulary](https://w3c-ccg.github.io/lds-jws2020/)
 - [View Linked Data Signature Suite Context](https://w3c-ccg.github.io/lds-jws2020/contexts/lds-jws2020-v1.json)
+
+## Interop Test Suite
+
+- See [JWS-Test-Suite](https://github.com/decentralized-identity/JWS-Test-Suite).
+
+See the repo above for links to implementations in Java, Rust and TypeScript.
 
 ## Security Considerations
 
@@ -36,108 +38,6 @@ The expected alg will be determined by the following table.
 
 Anything else will result in an unsupported alg error.
 
-## Usage
-
-Install:
-
-```
-npm i @transmute/json-web-signature-2020 --save
-```
-
-Use with vc-js:
-
-```ts
-import {
-  JsonWebKey,
-  JsonWebSignature2020,
-} from "@transmute/json-web-signature-2020";
-
-// You will need a custom document loader to do pretty much anything
-// with LD Proofs, especially to work with DIDs
-// Search this repo for "documentLoader" to learn more.
-import { documentLoader } from "../somwhere...";
-
-const key = new JsonWebKey({
-  type: "JsonWebKey2020",
-  id: "did:example:123#DTXI1UCGeLHx3B6GmZtMQuR8b3KDdaayEYPJN8iME6o",
-  controller: "did:example:123",
-  publicKeyJwk: {
-    crv: "Ed25519",
-    x: "fJ-HI45g-LjZI6poTa122g5u6hRYzPRyJCY5pq9dfSQ",
-    kty: "OKP",
-    kid: "DTXI1UCGeLHx3B6GmZtMQuR8b3KDdaayEYPJN8iME6o",
-  },
-  privateKeyJwk: {
-    crv: "Ed25519",
-    x: "fJ-HI45g-LjZI6poTa122g5u6hRYzPRyJCY5pq9dfSQ",
-    d: "94-6uUZUPMUuAXzJykpTrGIjKfvAXp6ocKz8ipBYkg4",
-    kty: "OKP",
-    kid: "DTXI1UCGeLHx3B6GmZtMQuR8b3KDdaayEYPJN8iME6o",
-  },
-});
-
-const suite = new JsonWebSignature2020({
-  key,
-  date: "2019-12-11T03:50:55Z",
-});
-
-const verifiableCredential = await vc.issue({
-  credential: {
-    "@context": [
-      "https://www.w3.org/2018/credentials/v1",
-      "https://www.w3.org/2018/credentials/examples/v1",
-      "https://w3c-ccg.github.io/lds-jws2020/contexts/lds-jws2020-v1.json",
-    ],
-    id: "http://example.gov/credentials/3732",
-    type: ["VerifiableCredential", "UniversityDegreeCredential"],
-    issuer: { id: "did:example:123" },
-    issuanceDate: "2020-03-10T04:24:12.164Z",
-    credentialSubject: {
-      id: "did:example:456",
-      degree: {
-        type: "BachelorDegree",
-        name: "Bachelor of Science and Arts",
-      },
-    },
-  },
-  suite,
-});
-
-const result = await vc.verify({
-  credential: {
-    "@context": [
-      "https://www.w3.org/2018/credentials/v1",
-      "https://www.w3.org/2018/credentials/examples/v1",
-      "https://w3c-ccg.github.io/lds-jws2020/contexts/lds-jws2020-v1.json",
-    ],
-    id: "http://example.gov/credentials/3732",
-    type: ["VerifiableCredential", "UniversityDegreeCredential"],
-    issuer: {
-      id: "https://example.com/issuer/123",
-    },
-    issuanceDate: "2020-03-10T04:24:12.164Z",
-    credentialSubject: {
-      id: "did:example:456",
-      degree: {
-        type: "BachelorDegree",
-        name: "Bachelor of Science and Arts",
-      },
-    },
-    proof: {
-      type: "JsonWebSignature2020",
-      created: "2019-12-11T03:50:55Z",
-      jws:
-        "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..MJ5GwWRMsadCyLNXU_flgJtsS32584MydBxBuygps_cM0sbU3abTEOMyUvmLNcKOwOBE1MfDoB1_YY425W3sAg",
-      proofPurpose: "assertionMethod",
-      verificationMethod:
-        "https://example.com/issuer/123#ovsDKYBjFemIy8DVhc-w2LSi8CvXMw2AYDzHj04yxkc",
-    },
-  },
-  documentLoader: documentLoader,
-  suite,
-});
-```
-
 ### Suite Details
 
 Per [ld-signatures](https://w3c-ccg.github.io/ld-signatures/#signature-suites), this Signature Suite defines the following:
@@ -154,11 +54,6 @@ Per [ld-signatures](https://w3c-ccg.github.io/ld-signatures/#signature-suites), 
 
 See the [Linked Data Signature Suite Vocabulary](https://w3c-ccg.github.io/lds-jws2020/contexts/).
 
-#### Example Data
-
-- [example keystore](https://w3c-ccg.github.io/lds-jws2020/example/didDocJwks.json).
-- [example did document](https://w3c-ccg.github.io/lds-jws2020/example/didDoc.json)
-
 ## Credits and Support
 
 Works with:
@@ -166,4 +61,6 @@ Works with:
 - [jose](https://github.com/panva/jose)
 - [universal-resolver](https://github.com/decentralized-identity/universal-resolver)
 - [jsonld-signatures](https://github.com/digitalbazaar/jsonld-signatures)
-- [vc-js](https://github.com/digitalbazaar/vc-js)
+- [@digitalbazaar/vc](https://github.com/digitalbazaar/vc-js)
+- [@transmute/json-web-signature](https://github.com/transmute-industries/verifiable-data/tree/main/packages/json-web-signature)
+- [@transmute/vc.js](https://github.com/transmute-industries/verifiable-data/tree/main/packages/vc.js)
