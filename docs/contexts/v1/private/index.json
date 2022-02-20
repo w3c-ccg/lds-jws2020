@@ -1,0 +1,9 @@
+{
+  "@context": {
+    "@protected": "true",
+    "privateKeyJwk": {
+      "@id": "https://w3id.org/security#privateKeyJwk",
+      "@type": "@json"
+    }
+  }
+}

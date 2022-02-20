@@ -1,9 +1,5 @@
 {
   "@context": {
-    "privateKeyJwk": {
-      "@id": "https://w3id.org/security#privateKeyJwk",
-      "@type": "@json"
-    },
     "JsonWebKey2020": {
       "@id": "https://w3id.org/security#JsonWebKey2020",
       "@context": {
