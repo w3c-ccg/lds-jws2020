@@ -338,15 +338,15 @@
         </tbody>
       </table>
 
-    
+
 
       <section>
         <h3>JOSE Conformance</h3>
 
         <p>
           This suite support cryptographic agility, see [[RFC7696]].
-          This table maps a key type to a subset of [[IANA_JOSE]] supported 
-          signing and encryption algorithms. 
+          This table maps a key type to a subset of [[IANA_JOSE]] supported
+          signing and encryption algorithms.
         </p>
 
       <table class="simple">
@@ -476,7 +476,7 @@
 
           <pre class="example" title="Example in DID Document.">
             {
-              "@context": "https://www.w3.org/ns/did/v1",
+              "@context": ["https://www.w3.org/ns/did/v1", "https://w3id.org/security/suites/jws-2020/v1"],
               "id": "did:example:123",
               "publicKey": [
                 {
@@ -629,7 +629,7 @@
             <p class="advisement">
               The header of the detached JWS MUST look like this:
               <code>{"b64":false,"crit":["b64"],"alg":"PS256"}</code>
-              where <code>alg</code> is a value registered in [[IANA_JOSE]] 
+              where <code>alg</code> is a value registered in [[IANA_JOSE]]
               AND is present in the supported algorithms table of this suite.
             </p>
           </p>
@@ -644,7 +644,7 @@
       <pre class="example">
         {
           "seed_0": "9b937b81322d816cfab9d5a3baacc9b2a5febe4b149f126b3630f93a29527017"
-        }        
+        }
       </pre>
       <pre class="example">
         {
@@ -700,12 +700,12 @@
               "d": "dXghMAzYZmv46SNRuxmfDIuAlv7XIhvlkPzW3vXsopB1ihWp47tx0hqjZmYO6fJa"
             }
           }
-        }             
+        }
       </pre>
       <pre class="example">
         {
           "message_0": "hello world"
-        }        
+        }
       </pre>
       <pre class="example">
         {
@@ -718,7 +718,7 @@
           "issuer_0": {
             "@context": [
               "https://www.w3.org/ns/did/v1",
-              "https://w3c-ccg.github.io/lds-jws2020/contexts/lds-jws2020-v1.json",
+              "https://w3id.org/security/suites/jws-2020/v1",
               {
                 "@base": "https://example.com/issuer/123"
               }
@@ -739,16 +739,16 @@
             "assertionMethod": ["#ovsDKYBjFemIy8DVhc-w2LSi8CvXMw2AYDzHj04yxkc"]
           }
         }
-         
+
       </pre>
-     
+
       <pre class="example">
         {
           "vc_template_0": {
             "@context": [
               "https://www.w3.org/2018/credentials/v1",
               "https://www.w3.org/2018/credentials/examples/v1",
-              "https://w3c-ccg.github.io/lds-jws2020/contexts/lds-jws2020-v1.json"
+              "https://w3id.org/security/suites/jws-2020/v1"
             ],
             "id": "http://example.gov/credentials/3732",
             "type": ["VerifiableCredential", "UniversityDegreeCredential"],
@@ -766,7 +766,7 @@
             "@context": [
               "https://www.w3.org/2018/credentials/v1",
               "https://www.w3.org/2018/credentials/examples/v1",
-              "https://w3c-ccg.github.io/lds-jws2020/contexts/lds-jws2020-v1.json"
+              "https://w3id.org/security/suites/jws-2020/v1"
             ],
             "id": "http://example.gov/credentials/3732",
             "type": ["VerifiableCredential", "UniversityDegreeCredential"],
@@ -790,7 +790,7 @@
             }
           }
         }
-         
+
       </pre>
 
     </section>
@@ -800,7 +800,7 @@
         A <dfn>conforming document</dfn> is any concrete expression of the data model
         that complies with the normative statements in this specification.
         Specifically, all relevant normative statements in Sections
-        <a href="#terminology"></a> and <a href="#suite-definition"></a> 
+        <a href="#terminology"></a> and <a href="#suite-definition"></a>
         of this document MUST be enforced.
         </p>
 
