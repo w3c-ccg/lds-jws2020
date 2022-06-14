@@ -64,3 +64,5 @@ Works with:
 - [@digitalbazaar/vc](https://github.com/digitalbazaar/vc-js)
 - [@transmute/json-web-signature](https://github.com/transmute-industries/verifiable-data/tree/main/packages/json-web-signature)
 - [@transmute/vc.js](https://github.com/transmute-industries/verifiable-data/tree/main/packages/vc.js)
+- [ssi](https://github.com/spruceid/ssi)
+- [DIDKit](https://github.com/spruceid/didkit)
