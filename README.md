@@ -1,5 +1,11 @@
 # Linked Data Signatures for JWS
 
+This work has moved to the W3C VCWG, you can open issues, comment on PRs or engage on the latest version here:
+
+- [https://github.com/w3c/vc-jws-2020](https://github.com/w3c/vc-jws-2020)
+
+### This repo is now deprecated.
+
 [View On Github](https://github.com/w3c-ccg/lds-jws2020)
 
 - [View Linked Data Signature Suite Vocabulary](https://w3c-ccg.github.io/lds-jws2020/)
