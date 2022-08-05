@@ -1,12 +1,14 @@
-# Linked Data Signatures for JWS
 
-This work has moved to the W3C VCWG, you can open issues, comment on PRs or engage on the latest version here:
+# This repo is now deprecated.
+
+## This work has moved to the W3C VCWG, you can open issues, comment on PRs or engage on the latest version here:
 
 - [https://github.com/w3c/vc-jws-2020](https://github.com/w3c/vc-jws-2020)
 
 See the [W3C Verifiable Credentials Working Group](https://www.w3.org/2017/vc/WG/).
 
-### This repo is now deprecated.
+
+### Linked Data Signatures for JWS
 
 [View On Github](https://github.com/w3c-ccg/lds-jws2020)
 
